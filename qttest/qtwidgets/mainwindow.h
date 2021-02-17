@@ -15,6 +15,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_radioButton_clicked(bool checked);
+
+    void on_mdiArea_windowIconTextChanged(const QString &iconText);
+
 private:
     Ui::MainWindow *ui;
 };
