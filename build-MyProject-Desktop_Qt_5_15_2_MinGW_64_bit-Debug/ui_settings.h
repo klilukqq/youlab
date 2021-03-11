@@ -49,9 +49,11 @@ public:
         if (settings->objectName().isEmpty())
             settings->setObjectName(QString::fromUtf8("settings"));
         settings->resize(237, 399);
+        settings->setMinimumSize(QSize(237, 399));
+        settings->setMaximumSize(QSize(237, 399));
         Setting = new QPushButton(settings);
         Setting->setObjectName(QString::fromUtf8("Setting"));
-        Setting->setGeometry(QRect(50, 360, 121, 31));
+        Setting->setGeometry(QRect(50, 360, 75, 23));
         Setting_label = new QLabel(settings);
         Setting_label->setObjectName(QString::fromUtf8("Setting_label"));
         Setting_label->setGeometry(QRect(80, 10, 61, 21));
@@ -120,10 +122,10 @@ public:
 
         gps_locator = new QPushButton(settings);
         gps_locator->setObjectName(QString::fromUtf8("gps_locator"));
-        gps_locator->setGeometry(QRect(160, 290, 41, 31));
+        gps_locator->setGeometry(QRect(170, 290, 41, 31));
         text_locator = new QLineEdit(settings);
         text_locator->setObjectName(QString::fromUtf8("text_locator"));
-        text_locator->setGeometry(QRect(20, 290, 111, 31));
+        text_locator->setGeometry(QRect(20, 290, 121, 31));
 
         retranslateUi(settings);
 

@@ -10,6 +10,18 @@
     <height>399</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>237</width>
+    <height>399</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>237</width>
+    <height>399</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
@@ -156,7 +168,7 @@
   <widget class="QPushButton" name="gps_locator">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>290</y>
      <width>41</width>
      <height>31</height>
@@ -171,7 +183,7 @@
     <rect>
      <x>20</x>
      <y>290</y>
-     <width>111</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
