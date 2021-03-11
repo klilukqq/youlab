@@ -9,14 +9,26 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    day_extend.cpp \
+    day_short.cpp \
     main.cpp \
-    widget.cpp
+    month.cpp \
+    settings.cpp \
+    week.cpp
 
 HEADERS += \
-    widget.h
+    day_extend.h \
+    day_short.h \
+    month.h \
+    settings.h \
+    week.h
 
 FORMS += \
-    widget.ui
+    day_extend.ui \
+    day_short.ui \
+    month.ui \
+    settings.ui \
+    week.ui
 
 TRANSLATIONS += \
     MyProject_ru_RU.ts
