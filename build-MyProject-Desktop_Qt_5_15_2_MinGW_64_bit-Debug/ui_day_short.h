@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -20,7 +19,6 @@ QT_BEGIN_NAMESPACE
 class Ui_day_short
 {
 public:
-    QLabel *label;
     QPushButton *ChangeFormat;
     QPushButton *Setting;
 
@@ -29,9 +27,6 @@ public:
         if (day_short->objectName().isEmpty())
             day_short->setObjectName(QString::fromUtf8("day_short"));
         day_short->resize(426, 387);
-        label = new QLabel(day_short);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(120, 160, 141, 41));
         ChangeFormat = new QPushButton(day_short);
         ChangeFormat->setObjectName(QString::fromUtf8("ChangeFormat"));
         ChangeFormat->setGeometry(QRect(140, 350, 121, 21));
@@ -47,7 +42,6 @@ public:
     void retranslateUi(QWidget *day_short)
     {
         day_short->setWindowTitle(QCoreApplication::translate("day_short", "Form", nullptr));
-        label->setText(QCoreApplication::translate("day_short", "<html><head/><body><p><span style=\" font-size:12pt; color:#00aa00;\">\320\237\320\276\320\272\320\260 \320\275\320\260 \320\267\320\260\320\264\321\203\320\274\320\272\320\265</span></p></body></html>", nullptr));
         ChangeFormat->setText(QCoreApplication::translate("day_short", "\320\241\320\274\320\265\320\275\320\260 \321\204\320\276\321\200\320\274\320\260\321\202\320\260", nullptr));
         Setting->setText(QCoreApplication::translate("day_short", "\320\235\320\260\321\201\321\202\321\200\320\276\320\271\320\272\320\270", nullptr));
     } // retranslateUi

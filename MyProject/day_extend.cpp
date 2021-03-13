@@ -9,9 +9,10 @@ day_extend::day_extend(QWidget *parent)
     , ui(new Ui::Widget)
 {
     QString date = "12.03.21";
+    QString locate = "Зеленоград";
     ui->setupUi(this);
-    ui->date->insertPlainText(date);
     ui->temp_date->setText(date);
+    ui->City->setText(locate);
 }
 
 day_extend::~day_extend()

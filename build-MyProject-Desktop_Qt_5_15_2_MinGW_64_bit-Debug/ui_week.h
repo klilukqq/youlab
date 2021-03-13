@@ -86,7 +86,7 @@ public:
         City->setGeometry(QRect(470, 10, 201, 31));
         day1 = new QGroupBox(week);
         day1->setObjectName(QString::fromUtf8("day1"));
-        day1->setGeometry(QRect(10, 90, 81, 251));
+        day1->setGeometry(QRect(10, 90, 81, 261));
         frame = new QFrame(day1);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(10, 70, 61, 51));
@@ -106,7 +106,7 @@ public:
         weather_1->setGeometry(QRect(0, 220, 81, 31));
         day2 = new QGroupBox(week);
         day2->setObjectName(QString::fromUtf8("day2"));
-        day2->setGeometry(QRect(110, 90, 81, 251));
+        day2->setGeometry(QRect(110, 90, 81, 261));
         frame_2 = new QFrame(day2);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
         frame_2->setGeometry(QRect(10, 70, 61, 51));
@@ -126,7 +126,7 @@ public:
         weather_2->setGeometry(QRect(0, 220, 81, 31));
         day3 = new QGroupBox(week);
         day3->setObjectName(QString::fromUtf8("day3"));
-        day3->setGeometry(QRect(210, 90, 81, 251));
+        day3->setGeometry(QRect(210, 90, 81, 261));
         frame_3 = new QFrame(day3);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
         frame_3->setGeometry(QRect(10, 70, 61, 51));
@@ -146,7 +146,7 @@ public:
         weather_3->setGeometry(QRect(0, 220, 81, 31));
         day4 = new QGroupBox(week);
         day4->setObjectName(QString::fromUtf8("day4"));
-        day4->setGeometry(QRect(310, 90, 81, 251));
+        day4->setGeometry(QRect(310, 90, 81, 261));
         frame_5 = new QFrame(day4);
         frame_5->setObjectName(QString::fromUtf8("frame_5"));
         frame_5->setGeometry(QRect(10, 70, 61, 51));
@@ -166,7 +166,7 @@ public:
         weather_4->setGeometry(QRect(0, 220, 81, 31));
         day5 = new QGroupBox(week);
         day5->setObjectName(QString::fromUtf8("day5"));
-        day5->setGeometry(QRect(410, 90, 81, 251));
+        day5->setGeometry(QRect(410, 90, 81, 261));
         frame_6 = new QFrame(day5);
         frame_6->setObjectName(QString::fromUtf8("frame_6"));
         frame_6->setGeometry(QRect(10, 70, 61, 51));
@@ -186,7 +186,7 @@ public:
         weather_5->setGeometry(QRect(0, 220, 81, 31));
         day6 = new QGroupBox(week);
         day6->setObjectName(QString::fromUtf8("day6"));
-        day6->setGeometry(QRect(510, 90, 81, 251));
+        day6->setGeometry(QRect(510, 90, 81, 261));
         frame_7 = new QFrame(day6);
         frame_7->setObjectName(QString::fromUtf8("frame_7"));
         frame_7->setGeometry(QRect(10, 70, 61, 51));
@@ -206,7 +206,7 @@ public:
         weather_6->setGeometry(QRect(0, 220, 81, 31));
         day7 = new QGroupBox(week);
         day7->setObjectName(QString::fromUtf8("day7"));
-        day7->setGeometry(QRect(610, 90, 81, 251));
+        day7->setGeometry(QRect(610, 90, 81, 261));
         frame_8 = new QFrame(day7);
         frame_8->setObjectName(QString::fromUtf8("frame_8"));
         frame_8->setGeometry(QRect(10, 70, 61, 51));
