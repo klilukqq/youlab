@@ -1,11 +1,10 @@
+debug/data_handler.o
 debug/day_extend.o
-debug/day_short.o
 debug/main.o
 debug/month.o
 debug/settings.o
 debug/week.o
 debug/moc_day_extend.o
-debug/moc_day_short.o
 debug/moc_month.o
 debug/moc_settings.o
 debug/moc_week.o

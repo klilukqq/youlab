@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
@@ -24,7 +25,6 @@ class Ui_month
 public:
     QPushButton *ChangeFormat;
     QPushButton *Setting;
-    QTextBrowser *City;
     QGroupBox *day;
     QTextBrowser *month_date;
     QTextBrowser *day_deqr;
@@ -165,6 +165,7 @@ public:
     QTextBrowser *day_deqr_28;
     QTextBrowser *night_degr_28;
     QFrame *weather_fra_28;
+    QLabel *City_2;
 
     void setupUi(QWidget *month)
     {
@@ -177,9 +178,6 @@ public:
         Setting = new QPushButton(month);
         Setting->setObjectName(QString::fromUtf8("Setting"));
         Setting->setGeometry(QRect(550, 410, 121, 21));
-        City = new QTextBrowser(month);
-        City->setObjectName(QString::fromUtf8("City"));
-        City->setGeometry(QRect(180, 410, 201, 31));
         day = new QGroupBox(month);
         day->setObjectName(QString::fromUtf8("day"));
         day->setGeometry(QRect(0, 10, 91, 91));
@@ -656,6 +654,12 @@ public:
         weather_fra_28->setGeometry(QRect(40, 40, 51, 51));
         weather_fra_28->setFrameShape(QFrame::StyledPanel);
         weather_fra_28->setFrameShadow(QFrame::Raised);
+        City_2 = new QLabel(month);
+        City_2->setObjectName(QString::fromUtf8("City_2"));
+        City_2->setGeometry(QRect(30, 410, 141, 31));
+        QFont font;
+        font.setPointSize(14);
+        City_2->setFont(font);
 
         retranslateUi(month);
 
@@ -835,6 +839,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        City_2->setText(QCoreApplication::translate("month", "City", nullptr));
     } // retranslateUi
 
 };

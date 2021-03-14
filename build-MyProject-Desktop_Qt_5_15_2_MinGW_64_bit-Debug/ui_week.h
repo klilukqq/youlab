@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
@@ -24,7 +25,6 @@ class Ui_week
 public:
     QPushButton *ChangeFormat;
     QPushButton *Setting;
-    QTextBrowser *City;
     QGroupBox *day1;
     QFrame *frame;
     QTextBrowser *date_1;
@@ -67,6 +67,7 @@ public:
     QTextBrowser *day_deg_7;
     QTextBrowser *night_deg_7;
     QTextBrowser *weather_7;
+    QLabel *City_2;
 
     void setupUi(QWidget *week)
     {
@@ -81,9 +82,6 @@ public:
         Setting = new QPushButton(week);
         Setting->setObjectName(QString::fromUtf8("Setting"));
         Setting->setGeometry(QRect(550, 410, 121, 21));
-        City = new QTextBrowser(week);
-        City->setObjectName(QString::fromUtf8("City"));
-        City->setGeometry(QRect(470, 10, 201, 31));
         day1 = new QGroupBox(week);
         day1->setObjectName(QString::fromUtf8("day1"));
         day1->setGeometry(QRect(10, 90, 81, 261));
@@ -224,6 +222,12 @@ public:
         weather_7 = new QTextBrowser(day7);
         weather_7->setObjectName(QString::fromUtf8("weather_7"));
         weather_7->setGeometry(QRect(0, 220, 81, 31));
+        City_2 = new QLabel(week);
+        City_2->setObjectName(QString::fromUtf8("City_2"));
+        City_2->setGeometry(QRect(510, 10, 161, 31));
+        QFont font;
+        font.setPointSize(14);
+        City_2->setFont(font);
 
         retranslateUi(week);
 
@@ -242,6 +246,7 @@ public:
         day5->setTitle(QString());
         day6->setTitle(QString());
         day7->setTitle(QString());
+        City_2->setText(QCoreApplication::translate("week", "City", nullptr));
     } // retranslateUi
 
 };

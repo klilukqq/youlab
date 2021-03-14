@@ -51,16 +51,6 @@
     <string>Настройки</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="City">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>10</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QGroupBox" name="day1">
    <property name="geometry">
     <rect>
@@ -543,6 +533,24 @@
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QLabel" name="City_2">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>10</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>City</string>
+   </property>
   </widget>
  </widget>
  <resources/>

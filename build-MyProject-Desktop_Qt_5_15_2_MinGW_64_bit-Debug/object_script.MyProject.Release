@@ -1,11 +1,10 @@
+release/data_handler.o
 release/day_extend.o
-release/day_short.o
 release/main.o
 release/month.o
 release/settings.o
 release/week.o
 release/moc_day_extend.o
-release/moc_day_short.o
 release/moc_month.o
 release/moc_settings.o
 release/moc_week.o

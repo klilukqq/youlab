@@ -151,7 +151,7 @@ public:
         source_two->setText(QCoreApplication::translate("settings", "\320\230\321\201\321\202\320\276\321\207\320\275\320\270\320\272 2", nullptr));
         source_three->setText(QCoreApplication::translate("settings", "\320\230\321\201\321\202\320\276\321\207\320\275\320\270\320\272 3", nullptr));
         gps_locator->setText(QCoreApplication::translate("settings", "GPS", nullptr));
-        text_locator->setText(QCoreApplication::translate("settings", "\320\227\320\265\320\273\320\265\320\275\320\276\320\263\321\200\320\260\320\264", nullptr));
+        text_locator->setText(QString());
     } // retranslateUi
 
 };

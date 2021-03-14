@@ -2,6 +2,7 @@
 #define SETTINGS_H
 
 #include <QWidget>
+#include "data_handler.h"
 
 namespace Ui {
 class settings;
@@ -10,10 +11,13 @@ class settings;
 class settings : public QWidget
 {
     Q_OBJECT
+    data_handler* data;
 
 public:
     explicit settings(QWidget *parent = nullptr);
+    settings(data_handler*,QWidget *parent = nullptr);
     ~settings();
+    data_handler* getData(data_handler*);
 
 private slots:
     void on_Setting_clicked();

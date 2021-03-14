@@ -1,7 +1,7 @@
 #include "month.h"
 #include "ui_month.h"
 #include "settings.h"
-#include "day_short.h"
+#include "day_extend.h"
 
 month::month(QWidget *parent) :
     QWidget(parent),
@@ -23,7 +23,7 @@ void month::on_Setting_clicked()
 
 void month::on_ChangeFormat_clicked()
 {
-    day_short* type = new day_short();
+    day_extend* type = new day_extend();
     type->show();
     month::close();
 }
