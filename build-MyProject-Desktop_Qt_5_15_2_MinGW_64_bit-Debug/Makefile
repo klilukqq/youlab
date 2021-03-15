@@ -249,7 +249,14 @@ Makefile: ../MyProject/MyProject.pro C:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++/q
 		C:/Qt/5.15.2/mingw81_64/mkspecs/features/lex.prf \
 		../MyProject/MyProject.pro \
 		C:/Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5Location.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5PositioningQuick.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5Quick.prl \
 		C:/Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5Positioning.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5QmlModels.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5Qml.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5Network.prl \
 		C:/Qt/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		C:/Qt/5.15.2/mingw81_64/lib/qtmain.prl \
 		C:/Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf
@@ -433,7 +440,14 @@ C:/Qt/5.15.2/mingw81_64/mkspecs/features/yacc.prf:
 C:/Qt/5.15.2/mingw81_64/mkspecs/features/lex.prf:
 ../MyProject/MyProject.pro:
 C:/Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5Location.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5PositioningQuick.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5Quick.prl:
 C:/Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5Positioning.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5QmlModels.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5Qml.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5Network.prl:
 C:/Qt/5.15.2/mingw81_64/lib/Qt5Core.prl:
 C:/Qt/5.15.2/mingw81_64/lib/qtmain.prl:
 C:/Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:

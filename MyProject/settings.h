@@ -22,6 +22,8 @@ public:
 private slots:
     void on_Setting_clicked();
 
+    void on_gps_locator_clicked();
+
 private:
     Ui::settings *ui;
 };
