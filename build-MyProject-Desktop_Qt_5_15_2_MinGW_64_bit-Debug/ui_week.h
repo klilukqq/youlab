@@ -67,7 +67,7 @@ public:
     QTextBrowser *day_deg_7;
     QTextBrowser *night_deg_7;
     QTextBrowser *weather_7;
-    QLabel *City_2;
+    QLabel *City;
 
     void setupUi(QWidget *week)
     {
@@ -222,12 +222,12 @@ public:
         weather_7 = new QTextBrowser(day7);
         weather_7->setObjectName(QString::fromUtf8("weather_7"));
         weather_7->setGeometry(QRect(0, 220, 81, 31));
-        City_2 = new QLabel(week);
-        City_2->setObjectName(QString::fromUtf8("City_2"));
-        City_2->setGeometry(QRect(510, 10, 161, 31));
+        City = new QLabel(week);
+        City->setObjectName(QString::fromUtf8("City"));
+        City->setGeometry(QRect(510, 10, 161, 31));
         QFont font;
         font.setPointSize(14);
-        City_2->setFont(font);
+        City->setFont(font);
 
         retranslateUi(week);
 
@@ -246,7 +246,7 @@ public:
         day5->setTitle(QString());
         day6->setTitle(QString());
         day7->setTitle(QString());
-        City_2->setText(QCoreApplication::translate("week", "City", nullptr));
+        City->setText(QCoreApplication::translate("week", "City", nullptr));
     } // retranslateUi
 
 };

@@ -5,6 +5,9 @@
 #include "QLabel"
 #include "QFile"
 #include "data_handler.h"
+#include "ui_day_extend.h"
+#include "settings.h"
+#include "week.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }

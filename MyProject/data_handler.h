@@ -9,15 +9,15 @@
 class data_handler
 {
     QDate date;
-    int limit = 7;
+    int limit = 3;
 
     QString locate;
 
 public:
     data_handler();
     QString getString_date();
-    void nextDate();
-    void prevDate();
+    bool nextDate();
+    bool prevDate();
     QDate getDate();
     void setDate(const QDate &value);
     void setLocate(QString);

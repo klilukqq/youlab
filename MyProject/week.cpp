@@ -8,6 +8,7 @@ week::week(QWidget *parent) :
     ui(new Ui::week)
 {
     ui->setupUi(this);
+    //ui->City->setText(data->getLocate());
 }
 
 week::~week()

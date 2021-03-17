@@ -53,7 +53,7 @@ public:
         settings->setMaximumSize(QSize(237, 399));
         Setting = new QPushButton(settings);
         Setting->setObjectName(QString::fromUtf8("Setting"));
-        Setting->setGeometry(QRect(50, 360, 75, 23));
+        Setting->setGeometry(QRect(50, 360, 131, 23));
         Setting_label = new QLabel(settings);
         Setting_label->setObjectName(QString::fromUtf8("Setting_label"));
         Setting_label->setGeometry(QRect(80, 10, 61, 21));

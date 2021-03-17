@@ -13,22 +13,33 @@ void data_handler::setDate(const QDate &value)
 }
 
 data_handler::data_handler(){
+
     date = QDate::currentDate();
 }
 
-void data_handler::nextDate(){
-    if(limit < 14){
+bool data_handler::nextDate(){
+    if(limit <= 10){
         date = date.addDays(1);
         limit += 1;
+        if(limit == 10)
+            return false;
+        else
+            return true;
     }
+    return false;
 }
 
 
-void data_handler::prevDate(){
+bool data_handler::prevDate(){
     if(limit > 0){
-    date = date.addDays(-1);
-    limit -= 1;
+        date = date.addDays(-1);
+        limit -= 1;
+        if(limit == 0)
+            return false;
+        else
+            return true;
     }
+    return false;
 }
 
 QString data_handler::getString_date()

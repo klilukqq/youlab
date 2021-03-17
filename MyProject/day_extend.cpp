@@ -1,7 +1,5 @@
 #include "day_extend.h"
-#include "ui_day_extend.h"
-#include "settings.h"
-#include "week.h"
+
 
 
 //#include <QDate>
@@ -46,6 +44,7 @@ day_extend::~day_extend()
         file.write(ui->City->text().toUtf8());
         file.close();
     }
+    delete data;
     delete ui;
 }
 
@@ -63,22 +62,40 @@ void day_extend::on_ChangeFormat_clicked()
 {
     week* type = new week();
     type->show();
+    //ui->~Widget();
     day_extend::close();
 }
 
 
 void day_extend::on_Next_day_clicked()
 {
-    data->nextDate();
+    if(data->nextDate()){
+        ui->temp_date->setText(data->getString_date());
+        if(ui->Prev_day->isActiveWindow())
+            ui->Prev_day->setEnabled(true);
+    }
+    else{
+        ui->temp_date->setText(data->getString_date());
+        ui->Next_day->setEnabled(false);
+    }
 
-    ui->temp_date->setText(data->getString_date());
 }
 
 void day_extend::on_Prev_day_clicked()
 {
-    data->prevDate();
+    if(data->prevDate()){
+        ui->temp_date->setText(data->getString_date());
+        if(ui->Next_day->isActiveWindow())
+            ui->Next_day->setEnabled(true);
+    }
+    else{
+        ui->temp_date->setText(data->getString_date());
+        ui->Prev_day->setEnabled(false);
+    }
+    //data->prevDate();
 
-    ui->temp_date->setText(data->getString_date());
+    //ui->temp_date->setText(data->getString_date());
+    //ui->Prev_day->setEnabled(false);
 }
 
 
