@@ -29,6 +29,9 @@ bool data_handler::nextDate(){
     return false;
 }
 
+void data_handler::setLimit(int lim){
+    this->limit = lim;
+}
 
 bool data_handler::prevDate(){
     if(limit > 0){

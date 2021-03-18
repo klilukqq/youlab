@@ -16,14 +16,14 @@ QT_END_NAMESPACE
 class day_extend : public QWidget
 {
     Q_OBJECT
-    data_handler* data = new data_handler();
+    data_handler* data; //= new data_handler();
     QPixmap pic_morning;
     QPixmap pic_evening;
     QPixmap pic_day;
     QPixmap pic_night;
 
 public:
-    day_extend(QWidget *parent = nullptr);
+    day_extend(data_handler *data, QWidget *parent = nullptr);
     ~day_extend();
 
 private slots:

@@ -2,6 +2,7 @@
 #define MONTH_H
 
 #include <QWidget>
+#include "data_handler.h"
 
 namespace Ui {
 class month;
@@ -10,9 +11,10 @@ class month;
 class month : public QWidget
 {
     Q_OBJECT
+    data_handler* data;
 
 public:
-    explicit month(QWidget *parent = nullptr);
+    explicit month(data_handler* data,QWidget *parent = nullptr);
     ~month();
 
 private slots:

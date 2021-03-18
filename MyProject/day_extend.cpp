@@ -4,10 +4,12 @@
 
 //#include <QDate>
 
-day_extend::day_extend(QWidget *parent)
+day_extend::day_extend(data_handler* data,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
+    this->data = data;
+    //data->setLimit(3);
     QFile file("conf.txt");
 
     if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
@@ -55,15 +57,19 @@ void day_extend::on_Setting_clicked()
     //setting->getData(data);
     setting->show();
     //ui->City->setText(data->getLocate());
-
 }
 
 void day_extend::on_ChangeFormat_clicked()
 {
-    week* type = new week();
-    type->show();
-    //ui->~Widget();
     day_extend::close();
+    QFile file("conf.txt");
+    if (file.open(QIODevice::WriteOnly))
+    {
+        file.write(ui->City->text().toUtf8());
+        file.close();
+    }
+    week* type = new week(data);
+    type->show();
 }
 
 

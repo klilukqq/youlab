@@ -14,6 +14,7 @@ class data_handler
     QString locate;
 
 public:
+    void setLimit(int lim);
     data_handler();
     QString getString_date();
     bool nextDate();
