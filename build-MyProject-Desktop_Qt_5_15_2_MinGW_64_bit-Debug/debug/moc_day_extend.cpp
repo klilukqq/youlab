@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../MyProject/day_extend.h"
+#include "../../MyProject/gui/day/day_extend.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

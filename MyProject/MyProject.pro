@@ -10,25 +10,25 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    data_handler.cpp \
-    day_extend.cpp \
-    main.cpp \
-    month.cpp \
-    settings.cpp \
-    week.cpp
+    gui/day/day_extend.cpp \
+    gui/month/month.cpp \
+    gui/settings/settings.cpp \
+    gui/week/week.cpp \
+    main/main.cpp \
+    model/data_handler.cpp \
 
 HEADERS += \
-    data_handler.h \
-    day_extend.h \
-    month.h \
-    settings.h \
-    week.h
+    gui/day/day_extend.h \
+    gui/month/month.h \
+    gui/settings/settings.h \
+    gui/week/week.h \
+    model/data_handler.h
 
 FORMS += \
-    day_extend.ui \
-    month.ui \
-    settings.ui \
-    week.ui
+    gui/day/day_extend.ui \
+    gui/month/month.ui \
+    gui/settings/settings.ui \
+    gui/week/week.ui
 
 TRANSLATIONS += \
     MyProject_ru_RU.ts

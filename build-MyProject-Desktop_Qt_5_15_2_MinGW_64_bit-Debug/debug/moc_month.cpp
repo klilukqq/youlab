@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../MyProject/month.h"
+#include "../../MyProject/gui/month/month.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

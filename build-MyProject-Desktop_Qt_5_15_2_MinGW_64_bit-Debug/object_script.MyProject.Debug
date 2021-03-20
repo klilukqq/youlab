@@ -1,9 +1,9 @@
-debug/data_handler.o
 debug/day_extend.o
-debug/main.o
 debug/month.o
 debug/settings.o
 debug/week.o
+debug/main.o
+debug/data_handler.o
 debug/moc_day_extend.o
 debug/moc_month.o
 debug/moc_settings.o
