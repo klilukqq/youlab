@@ -18,10 +18,10 @@ day_extend::day_extend(data_handler* data,QWidget *parent)
     //data->setLocate(file.readAll());
     //date = new data_handler();
 
-    pic_day.load("image\\Weather_Sun.png");
-    pic_night.load("image\\Weather_Cloud.png");
-    pic_evening.load("image\\Weather_CloudAndSun.png");
-    pic_morning.load("image\\Weather_CloudAndSun.png");
+    pic_day.load("image/Weather_Sun.png");
+    pic_night.load("image/Weather_Cloud.png");
+    pic_evening.load("image/Weather_CloudAndSun.png");
+    pic_morning.load("image/Weather_CloudAndSun.png");
     //QDate date = QDate::currentDate();
     //QString date = data.
     //date = date.addDays(1);
@@ -59,6 +59,7 @@ void day_extend::on_Setting_clicked()
 
 void day_extend::on_ChangeFormat_clicked()
 {
+
     day_extend::close();
     QFile file("conf.txt");
     if (file.open(QIODevice::WriteOnly))

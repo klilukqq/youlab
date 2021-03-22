@@ -35,6 +35,8 @@ private slots:
 
     void on_Prev_day_clicked();
 
+public slots:
+
     void on_update_clicked();
 
 private:

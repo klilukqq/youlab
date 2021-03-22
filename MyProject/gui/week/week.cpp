@@ -4,6 +4,7 @@ week::week(data_handler* data, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::week)
 {
+    //delete parent;
     this->data = data;
     ui->setupUi(this);
     //ui->City->setText(data->getLocate());
