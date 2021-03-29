@@ -1,6 +1,6 @@
 #include "week.h"
 
-week::week(data_handler* data, QWidget *parent) :
+week::week(dataHandler* data, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::week)
 {

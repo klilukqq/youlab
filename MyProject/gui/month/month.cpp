@@ -1,6 +1,6 @@
 #include "month.h"
 
-month::month(data_handler* data,QWidget *parent) :
+month::month(dataHandler* data,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::month)
 {
@@ -38,7 +38,7 @@ void month::on_ChangeFormat_clicked()
         file.close();
     }
 
-    day_extend* type = new day_extend(data);
+    dayExtend* type = new dayExtend(data);
     type->show();
 
 }

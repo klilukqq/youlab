@@ -2,11 +2,11 @@
 #define MONTH_H
 
 #include <QWidget>
-#include "model/data_handler.h"
+#include "model/dataHandler.h"
 #include "ui_month.h"
 #include "gui/settings/settings.h"
-#include "gui/day/day_extend.h"
-
+#include "gui/day/dayExtend.h"
+#include "oneday.h"
 
 namespace Ui {
 class month;
@@ -15,10 +15,10 @@ class month;
 class month : public QWidget
 {
     Q_OBJECT
-    data_handler* data;
+    dataHandler* data;
 
 public:
-    explicit month(data_handler* data,QWidget *parent = nullptr);
+    explicit month(dataHandler* data,QWidget *parent = nullptr);
     ~month();
 
 private slots:

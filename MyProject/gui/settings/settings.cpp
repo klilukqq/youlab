@@ -1,5 +1,6 @@
 #include "settings.h"
 #include "ui_settings.h"
+
 //#include <QGeoRoute>
 
 
@@ -11,7 +12,7 @@ settings::settings(QWidget *parent) :
 
 }
 
-settings::settings(data_handler* data,QWidget *parent):
+settings::settings(dataHandler* data,QWidget *parent):
     QWidget(parent),
     ui(new Ui::settings)
 {
@@ -19,7 +20,7 @@ settings::settings(data_handler* data,QWidget *parent):
     this->setWindowTitle("Настройки");
     ui->text_locator->setText(data->getLocate());
     this->data = data;
-    connect(ui->SettingApply,SIGNAL(clicked()),this,)
+    //connect(ui->SettingApply,SIGNAL(clicked()),this,);
 }
 
 settings::~settings()
@@ -29,7 +30,7 @@ settings::~settings()
 }
 
 
-data_handler* settings::getData(data_handler* data){
+dataHandler* settings::getData(dataHandler* data){
     return data;
 }
 
@@ -40,8 +41,11 @@ void settings::on_gps_locator_clicked()
     //ui->text_locator->setText(my_place.routeId());
 }
 
+
+
 void settings::on_SettingOK_clicked()
 {
+    connect(this,SIGNAL(this.on_SettingOK_clicked()),parent(),SLOT(parent::on_update_clicked()));
     data->setLocate(ui->text_locator->text());
     settings::close();
 }

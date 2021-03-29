@@ -2,7 +2,7 @@
 #define WEEK_H
 
 #include <QWidget>
-#include "model/data_handler.h"
+#include "model/dataHandler.h"
 #include "ui_week.h"
 #include "gui/settings/settings.h"
 #include "gui/month/month.h"
@@ -15,10 +15,10 @@ class week;
 class week : public QWidget
 {
     Q_OBJECT
-    data_handler* data;
+    dataHandler* data;
 
 public:
-    explicit week(data_handler* data, QWidget *parent = nullptr);
+    explicit week(dataHandler* data, QWidget *parent = nullptr);
     ~week();
 
 private slots:

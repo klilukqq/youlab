@@ -1,14 +1,14 @@
-#include "oneday.h"
-#include "ui_oneday.h"
+#include "oneDay.h"
+#include "ui_oneDay.h"
 
-OneDay::OneDay(QWidget *parent) :
+oneDay::oneDay(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::OneDay)
+    ui(new Ui::oneDay)
 {
     ui->setupUi(this);
 }
 
-OneDay::~OneDay()
+oneDay::~oneDay()
 {
     delete ui;
 }

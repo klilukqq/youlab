@@ -2,7 +2,7 @@
 #define SETTINGS_H
 
 #include <QWidget>
-#include "model/data_handler.h"
+#include "model/dataHandler.h"
 
 namespace Ui {
 class settings;
@@ -11,15 +11,15 @@ class settings;
 class settings : public QWidget
 {
     Q_OBJECT
-    data_handler* data;
+    dataHandler* data;
 
     QString PrevLocation;
 
 public:
     explicit settings(QWidget *parent = nullptr);
-    settings(data_handler*,QWidget *parent = nullptr);
+    settings(dataHandler*,QWidget *parent = nullptr);
     ~settings();
-    data_handler* getData(data_handler*);
+    dataHandler* getData(dataHandler*);
 
 
 signals:

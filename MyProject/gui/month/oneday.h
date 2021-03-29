@@ -4,19 +4,19 @@
 #include <QWidget>
 
 namespace Ui {
-class OneDay;
+class oneDay;
 }
 
-class OneDay : public QWidget
+class oneDay : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit OneDay(QWidget *parent = 0);
-    ~OneDay();
+    explicit oneDay(QWidget *parent = nullptr);
+    ~oneDay();
 
 private:
-    Ui::OneDay *ui;
+    Ui::oneDay *ui;
 };
 
 #endif // ONEDAY_H
