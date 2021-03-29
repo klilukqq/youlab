@@ -1,5 +1,5 @@
 #include "dayExtend.h"
-
+#include "ui_dayExtend.h"
 
 
 dayExtend::dayExtend(dataHandler* data,QWidget *parent)
@@ -8,25 +8,29 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
 {
     this->data = data;
     //data->setLimit(3);
-    QFile file("conf.txt");
 
-    if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
-    {
-        data->setLocate(file.readAll());
-        file.close();
-    }
+    QFile file;
 
     if(data->getSystem() == "Windows"){
         pic_day.load("..\\image\\Weather_Sun.png");
         pic_night.load("..\\image\\Weather_Cloud.png");
         pic_evening.load("..\\image\\Weather_CloudAndSun.png");
         pic_morning.load("..\\image\\Weather_CloudAndSun.png");
+        file.setFileName("..\\conf.txt");
     }
     else if(data->getSystem() == "Linux"){
         pic_day.load("../image/Weather_Sun.png");
         pic_night.load("../image/Weather_Cloud.png");
         pic_evening.load("../image/Weather_CloudAndSun.png");
         pic_morning.load("../image/Weather_CloudAndSun.png");
+        file.setFileName("../conf.txt");;
+    }
+
+
+    if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
+    {
+        data->setLocate(file.readAll());
+        file.close();
     }
 
     ui->setupUi(this);

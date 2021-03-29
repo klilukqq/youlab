@@ -2,6 +2,7 @@
 #define ONEDAY_H
 
 #include <QWidget>
+#include <QDate>
 
 namespace Ui {
 class oneDay;
@@ -14,8 +15,7 @@ class oneDay : public QWidget
 public:
     explicit oneDay(QWidget *parent = nullptr);
     ~oneDay();
-
-private:
+    void setDate(QDate date);
     Ui::oneDay *ui;
 };
 

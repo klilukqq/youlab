@@ -11,7 +11,7 @@ CONFIG += c++11
 
 SOURCES += \
     gui/day/dayExtend.cpp \
-    gui/month/oneDay.cpp \
+    gui/month/oneday.cpp \
     main/main.cpp \
     gui/week/week.cpp \
     gui/month/month.cpp \
@@ -21,7 +21,7 @@ SOURCES += \
 HEADERS += \
     gui/day/dayExtend.h \
     gui/month/month.h \
-    gui/month/oneDay.h \
+    gui/month/oneday.h \
     gui/settings/settings.h \
     gui/week/week.h \
     model/dataHandler.h
@@ -29,7 +29,7 @@ HEADERS += \
 FORMS += \
     gui/day/dayExtend.ui \
     gui/month/month.ui \
-    gui/month/oneDay.ui \
+    gui/month/oneday.ui \
     gui/settings/settings.ui \
     gui/week/week.ui
 

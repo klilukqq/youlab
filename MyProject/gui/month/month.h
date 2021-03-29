@@ -7,6 +7,7 @@
 #include "gui/settings/settings.h"
 #include "gui/day/dayExtend.h"
 #include "oneday.h"
+#include <QDate>
 
 namespace Ui {
 class month;
@@ -15,6 +16,7 @@ class month;
 class month : public QWidget
 {
     Q_OBJECT
+    QDate date;
     dataHandler* data;
 
 public:

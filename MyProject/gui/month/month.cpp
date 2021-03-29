@@ -4,6 +4,7 @@ month::month(dataHandler* data,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::month)
 {
+
     this->data = data;
     ui->setupUi(this);
 
@@ -15,6 +16,10 @@ month::month(dataHandler* data,QWidget *parent) :
     }
 
     ui->City->setText(data->getLocate());
+    oneDay* day = new oneDay[1];
+    day[0].setGeometry(5,5,25,10);
+    day[0].setDate(date.daysInMonth());
+    ui->monthLayout->addWidget(&day[0],1,1,1,1);
 }
 
 month::~month()

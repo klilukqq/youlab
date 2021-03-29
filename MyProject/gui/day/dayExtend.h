@@ -5,7 +5,7 @@
 #include "QLabel"
 #include "QFile"
 #include "model/dataHandler.h"
-#include "ui_day_extend.h"
+
 #include "gui/settings/settings.h"
 #include "gui/week/week.h"
 
