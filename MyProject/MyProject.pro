@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,7 +18,9 @@ SOURCES += \
     gui/settings/settings.cpp \
     model/dataHandler.cpp \
     model/dbLoader.cpp \
-    model/remoteServiceLoader.cpp
+    model/localStorage.cpp \
+    model/remoteServiceLoader.cpp \
+    model/weatherController.cpp
 
 HEADERS += \
     gui/day/dayExtend.h \
@@ -29,7 +31,9 @@ HEADERS += \
     model/ILoader.h \
     model/dataHandler.h \
     model/dbLoader.h \
-    model/remoteServiceLoader.h
+    model/localStorage.h \
+    model/remoteServiceLoader.h \
+    model/weatherController.h
 
 FORMS += \
     gui/day/dayExtend.ui \

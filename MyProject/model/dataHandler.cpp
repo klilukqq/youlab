@@ -39,6 +39,21 @@ QString dataHandler::getSystem(){
     return systemTempOs;
 }
 
+
+
+void dataHandler::setData(int i,QDate dbDate,int dbNight,int dbMorning,int dbDay,int dbEvening,QString dbNightWeather,QString dbMorningWeather,QString dbDayWeather,QString dbEveningWeather)
+{
+    Date[i] = dbDate;
+    night[i] = dbNight;
+    morning[i] = dbMorning;
+    day[i] = dbDay;
+    evening[i] = dbEvening;
+    nightWeather[i] = dbNightWeather;
+    morningWeather[i] = dbMorningWeather;
+    dayWeather[i] = dbDayWeather;
+    eveningWeather[i] = dbEveningWeather;
+}
+
 void dataHandler::setLimit(int lim){
     this->limit = lim;
 }
