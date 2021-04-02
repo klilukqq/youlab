@@ -16,7 +16,9 @@ SOURCES += \
     gui/week/week.cpp \
     gui/month/month.cpp \
     gui/settings/settings.cpp \
-    model/dataHandler.cpp
+    model/dataHandler.cpp \
+    model/dbLoader.cpp \
+    model/remoteServiceLoader.cpp
 
 HEADERS += \
     gui/day/dayExtend.h \
@@ -24,7 +26,10 @@ HEADERS += \
     gui/month/oneday.h \
     gui/settings/settings.h \
     gui/week/week.h \
-    model/dataHandler.h
+    model/ILoader.h \
+    model/dataHandler.h \
+    model/dbLoader.h \
+    model/remoteServiceLoader.h
 
 FORMS += \
     gui/day/dayExtend.ui \

@@ -17,6 +17,25 @@ week::week(dataHandler* data, QWidget *parent) :
     }
 
     ui->City->setText(data->getLocate());
+
+    QDate date = QDate::currentDate().addDays(-1);
+
+    ui->date_1->setText(date.toString(Qt::ISODate));
+    date = date.addDays(1);
+    ui->date_2->setText(date.toString(Qt::ISODate));
+    date = date.addDays(1);
+    ui->date_3->setText(date.toString(Qt::ISODate));
+    date = date.addDays(1);
+    ui->date_4->setText(date.toString(Qt::ISODate));
+    date = date.addDays(1);
+    ui->date_5->setText(date.toString(Qt::ISODate));
+    date = date.addDays(1);
+    ui->date_6->setText(date.toString(Qt::ISODate));
+    date = date.addDays(1);
+    ui->date_7->setText(date.toString(Qt::ISODate));
+
+
+
 }
 
 week::~week()

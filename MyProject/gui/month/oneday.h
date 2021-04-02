@@ -15,7 +15,7 @@ class oneDay : public QWidget
 public:
     explicit oneDay(QWidget *parent = nullptr);
     ~oneDay();
-    void setDate(QDate date);
+    void setDate(QString date);
     Ui::oneDay *ui;
 };
 

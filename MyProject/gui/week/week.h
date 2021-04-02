@@ -7,6 +7,7 @@
 #include "gui/settings/settings.h"
 #include "gui/month/month.h"
 #include "QFile"
+#include <QDate>
 
 namespace Ui {
 class week;

@@ -1,4 +1,5 @@
 #include "month.h"
+#include <QTextStream>
 
 month::month(dataHandler* data,QWidget *parent) :
     QWidget(parent),
@@ -14,16 +15,32 @@ month::month(dataHandler* data,QWidget *parent) :
         data->setLocate(file.readAll());
         file.close();
     }
-
+    //QTextStream out(stdout);
+// day[0].setGeometry(5,5,25,10);
     ui->City->setText(data->getLocate());
-    oneDay* day = new oneDay[1];
-    day[0].setGeometry(5,5,25,10);
-    day[0].setDate(date.daysInMonth());
-    ui->monthLayout->addWidget(&day[0],1,1,1,1);
+
+    QDate tempDate;
+    //tempDate.currentDate().daysInMonth();
+    //out << tempDate.currentDate().daysInMonth();
+    int numberDays = tempDate.currentDate().daysInMonth();
+
+    for(int i = 1; i <= numberDays;i++){
+    tempDate.setDate(tempDate.currentDate().year(),tempDate.currentDate().month(),i);
+    //out << tempDate.toString(Qt::ISODate);
+    day[i-1].setDate(tempDate.toString(Qt::ISODate));
+
+    //Добавить заполнение
+
+
+
+    ui->monthLayout->addWidget(&day[i-1],(i-1)/6,(i-1)%6);
+    }
+    //delete[] day;
 }
 
 month::~month()
 {
+    delete[] day;
     delete ui;
 }
 

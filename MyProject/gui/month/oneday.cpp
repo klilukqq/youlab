@@ -8,7 +8,7 @@ oneDay::oneDay(QWidget *parent) :
     ui->setupUi(this);
 }
 
-void oneDay::setDate(QDate date){
+void oneDay::setDate(QString date){
     ui->dateMonth->setText(date);
 }
 

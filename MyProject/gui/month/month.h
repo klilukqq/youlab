@@ -18,6 +18,7 @@ class month : public QWidget
     Q_OBJECT
     QDate date;
     dataHandler* data;
+    oneDay* day = new oneDay[QDate::currentDate().daysInMonth()];
 
 public:
     explicit month(dataHandler* data,QWidget *parent = nullptr);
