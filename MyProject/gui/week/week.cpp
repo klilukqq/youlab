@@ -3,10 +3,13 @@
 week::week(dataHandler* data, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::week)
+
 {
     //delete parent;
     this->data = data;
     ui->setupUi(this);
+
+    //this->setGeometry(parent->geometry());
     //ui->City->setText(data->getLocate());
 
     QFile file("conf.txt");
@@ -35,7 +38,6 @@ week::week(dataHandler* data, QWidget *parent) :
     ui->date_7->setText(date.toString(Qt::ISODate));
 
 
-
 }
 
 week::~week()
@@ -46,6 +48,8 @@ week::~week()
 void week::on_Setting_clicked()
 {
     settings* setting = new settings();
+    setting->setGeometry(this->geometry().x(),this->geometry().y(),this->geometry().width()\
+                          ,this->geometry().height());
     setting->show();
 
 }
@@ -60,6 +64,7 @@ void week::on_ChangeFormat_clicked()
         file.close();
     }
     month* type = new month(data);
+    type->setGeometry(this->geometry());
     type->show();
 }
 

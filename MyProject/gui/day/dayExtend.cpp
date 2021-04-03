@@ -6,6 +6,8 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
+    //this->setGeometry(parent->geometry());
+    //this->setGeometry(parent->geometry());
     this->data = data;
     //data->setLimit(3);
 
@@ -34,6 +36,7 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     }
 
     ui->setupUi(this);
+
     ui->day_image->setPixmap(pic_day);
     ui->evening_image->setPixmap(pic_evening);
     ui->morning_image->setPixmap(pic_morning);
@@ -60,6 +63,8 @@ void dayExtend::on_Setting_clicked()
 {
     settings* setting = new settings(data);
     //setting->getData(data);
+    setting->setGeometry(this->geometry().x(),this->geometry().y(),this->geometry().width()\
+                          ,this->geometry().height());
     setting->show();
     //ui->City->setText(data->getLocate());
 }
@@ -75,6 +80,7 @@ void dayExtend::on_ChangeFormat_clicked()
         file.close();
     }
     week* type = new week(data);
+    type->setGeometry(this->geometry());
     type->show();
 }
 

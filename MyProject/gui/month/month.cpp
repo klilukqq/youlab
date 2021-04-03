@@ -47,6 +47,8 @@ month::~month()
 void month::on_Setting_clicked()
 {
     settings* setting = new settings();
+    setting->setGeometry(this->geometry().x(),this->geometry().y(),this->geometry().width()\
+                          ,this->geometry().height());
     setting->show();
 }
 
@@ -61,6 +63,7 @@ void month::on_ChangeFormat_clicked()
     }
 
     dayExtend* type = new dayExtend(data);
+    type->setGeometry(this->geometry());
     type->show();
 
 }

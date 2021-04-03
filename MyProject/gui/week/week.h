@@ -18,6 +18,7 @@ class week : public QWidget
     Q_OBJECT
     dataHandler* data;
 
+
 public:
     explicit week(dataHandler* data, QWidget *parent = nullptr);
     ~week();
