@@ -9,7 +9,13 @@ month::month(dataHandler* data,QWidget *parent) :
     this->data = data;
     ui->setupUi(this);
 
-    QFile file("conf.txt");
+    QFile file;
+    if(data->getSystem() == "Windows"){
+        file.setFileName("..\\conf.txt");
+    }
+    else if(data->getSystem() == "Linux"){
+        file.setFileName("../conf.txt");;
+    }
     if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
     {
         data->setLocate(file.readAll());
@@ -46,24 +52,35 @@ month::~month()
 
 void month::on_Setting_clicked()
 {
-    settings* setting = new settings();
+    settings* setting = new settings(data);
     setting->setGeometry(this->geometry().x(),this->geometry().y(),this->geometry().width()\
                           ,this->geometry().height());
+    QObject::connect(setting,&settings::signalFromButton,this,&month::update);
     setting->show();
 }
 
 void month::on_ChangeFormat_clicked()
 {
     month::close();
-    QFile file("conf.txt");
-    if (file.open(QIODevice::WriteOnly))
-    {
-        file.write(ui->City->text().toUtf8());
-        file.close();
-    }
-
     dayExtend* type = new dayExtend(data);
     type->setGeometry(this->geometry());
     type->show();
 
+}
+
+void month::update()
+{
+    QFile file;
+    if(data->getSystem() == "Windows"){
+        file.setFileName("..\\conf.txt");
+    }
+    else if(data->getSystem() == "Linux"){
+        file.setFileName("../conf.txt");;
+    }
+    if (file.open(QIODevice::WriteOnly))
+    {
+        file.write(data->getLocate().toUtf8());
+        file.close();
+    }
+    ui->City->setText(data->getLocate());
 }

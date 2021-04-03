@@ -29,6 +29,10 @@ private slots:
 
     void on_ChangeFormat_clicked();
 
+public slots:
+
+    void update();
+
 private:
     Ui::month *ui;
 };

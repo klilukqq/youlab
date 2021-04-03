@@ -37,7 +37,7 @@ private slots:
 
 public slots:
 
-    void on_update_clicked();
+    void update();
 
 private:
     Ui::Widget *ui;

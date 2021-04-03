@@ -23,7 +23,7 @@ public:
 
 
 signals:
-    void signalFromButton(int);
+    void signalFromButton();
 
 private slots:
 

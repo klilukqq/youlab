@@ -45,23 +45,22 @@ void settings::on_gps_locator_clicked()
 
 void settings::on_SettingOK_clicked()
 {
-    connect(this,SIGNAL(this.on_SettingOK_clicked()),parent(),SLOT(parent::on_update_clicked()));
+
     data->setLocate(ui->text_locator->text());
     settings::close();
-}
-
-void signalFromButton(int){
-
+    emit signalFromButton();
 }
 
 void settings::on_SettingApply_clicked()
 {
     PrevLocation = data->getLocate();
     data->setLocate(ui->text_locator->text());
+    emit signalFromButton();
 }
 
 void settings::on_SettingCancel_clicked()
 {
     ui->text_locator->setText(PrevLocation);
     data->setLocate(PrevLocation);
+    emit signalFromButton();
 }

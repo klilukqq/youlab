@@ -12,7 +12,13 @@ week::week(dataHandler* data, QWidget *parent) :
     //this->setGeometry(parent->geometry());
     //ui->City->setText(data->getLocate());
 
-    QFile file("conf.txt");
+    QFile file;
+    if(data->getSystem() == "Windows"){
+        file.setFileName("..\\conf.txt");
+    }
+    else if(data->getSystem() == "Linux"){
+        file.setFileName("../conf.txt");;
+    }
     if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
     {
         data->setLocate(file.readAll());
@@ -47,9 +53,10 @@ week::~week()
 
 void week::on_Setting_clicked()
 {
-    settings* setting = new settings();
+    settings* setting = new settings(data);
     setting->setGeometry(this->geometry().x(),this->geometry().y(),this->geometry().width()\
                           ,this->geometry().height());
+    QObject::connect(setting,&settings::signalFromButton,this,&week::update);
     setting->show();
 
 }
@@ -57,15 +64,26 @@ void week::on_Setting_clicked()
 void week::on_ChangeFormat_clicked()
 {
     week::close();
-    QFile file("conf.txt");
-    if (file.open(QIODevice::WriteOnly))
-    {
-        file.write(ui->City->text().toUtf8());
-        file.close();
-    }
     month* type = new month(data);
     type->setGeometry(this->geometry());
     type->show();
+}
+
+void week::update()
+{
+    QFile file;
+    if(data->getSystem() == "Windows"){
+        file.setFileName("..\\conf.txt");
+    }
+    else if(data->getSystem() == "Linux"){
+        file.setFileName("../conf.txt");;
+    }
+    if (file.open(QIODevice::WriteOnly))
+    {
+        file.write(data->getLocate().toUtf8());
+        file.close();
+    }
+    ui->City->setText(data->getLocate());
 }
 
 //как закрывать приложение
