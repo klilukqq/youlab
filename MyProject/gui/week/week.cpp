@@ -1,4 +1,5 @@
 #include "week.h"
+#include "gui/month/month.h"
 
 week::week(dataHandler* data, QWidget *parent) :
     QWidget(parent),
@@ -14,10 +15,10 @@ week::week(dataHandler* data, QWidget *parent) :
 
     QFile file;
     if(data->getSystem() == "Windows"){
-        file.setFileName("..\\conf.txt");
+        file.setFileName("conf.txt");
     }
     else if(data->getSystem() == "Linux"){
-        file.setFileName("../conf.txt");;
+        file.setFileName("conf.txt");;
     }
     if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
     {
@@ -73,10 +74,10 @@ void week::update()
 {
     QFile file;
     if(data->getSystem() == "Windows"){
-        file.setFileName("..\\conf.txt");
+        file.setFileName("conf.txt");
     }
     else if(data->getSystem() == "Linux"){
-        file.setFileName("../conf.txt");;
+        file.setFileName("conf.txt");;
     }
     if (file.open(QIODevice::WriteOnly))
     {

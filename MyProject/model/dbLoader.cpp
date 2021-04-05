@@ -10,12 +10,14 @@ dbLoader::dbLoader(dataHandler* data)
 {
     this->data = data;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    if(data->getSystem() == "Windows"){
-        db.setDatabaseName("..\\MyDB.db");
-    }
-    if(data->getSystem() == "Linux"){
-        db.setDatabaseName("../MyDB.db");
-    }
+//    if(data->getSystem() == "Windows"){
+//        db.setDatabaseName("..\\MyDB.db");
+//    }
+//    if(data->getSystem() == "Linux"){
+//        db.setDatabaseName("../MyDB.db");
+//    }
+
+    db.setDatabaseName("MyDB.db");
     db.open();
 }
 

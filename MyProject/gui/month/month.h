@@ -7,7 +7,7 @@
 #include "gui/settings/settings.h"
 #include "gui/day/dayExtend.h"
 #include "oneday.h"
-#include <QDate>
+
 
 namespace Ui {
 class month;

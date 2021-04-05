@@ -5,7 +5,6 @@
 #include "model/dataHandler.h"
 #include "ui_week.h"
 #include "gui/settings/settings.h"
-#include "gui/month/month.h"
 #include "QFile"
 #include <QDate>
 

@@ -1,5 +1,7 @@
 #include "month.h"
 #include <QTextStream>
+#include <QDir>
+#include <QDate>
 
 month::month(dataHandler* data,QWidget *parent) :
     QWidget(parent),
@@ -10,11 +12,12 @@ month::month(dataHandler* data,QWidget *parent) :
     ui->setupUi(this);
 
     QFile file;
+    //QDir::separator()
     if(data->getSystem() == "Windows"){
-        file.setFileName("..\\conf.txt");
+        file.setFileName("conf.txt");
     }
     else if(data->getSystem() == "Linux"){
-        file.setFileName("../conf.txt");;
+        file.setFileName("conf.txt");;
     }
     if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
     {
@@ -72,10 +75,10 @@ void month::update()
 {
     QFile file;
     if(data->getSystem() == "Windows"){
-        file.setFileName("..\\conf.txt");
+        file.setFileName("conf.txt");
     }
     else if(data->getSystem() == "Linux"){
-        file.setFileName("../conf.txt");;
+        file.setFileName("conf.txt");;
     }
     if (file.open(QIODevice::WriteOnly))
     {

@@ -1,6 +1,6 @@
 #include "dayExtend.h"
 #include "ui_dayExtend.h"
-
+#include <QDir>
 
 dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     : QWidget(parent)
@@ -12,20 +12,20 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     //data->setLimit(3);
 
     QFile file;
-
+    QString locateFile = ".." + QDir::separator() + "";
     if(data->getSystem() == "Windows"){
         pic_day.load("..\\image\\Weather_Sun.png");
         pic_night.load("..\\image\\Weather_Cloud.png");
         pic_evening.load("..\\image\\Weather_CloudAndSun.png");
         pic_morning.load("..\\image\\Weather_CloudAndSun.png");
-        file.setFileName("..\\conf.txt");
+        file.setFileName("conf.txt");
     }
     else if(data->getSystem() == "Linux"){
         pic_day.load("../image/Weather_Sun.png");
         pic_night.load("../image/Weather_Cloud.png");
         pic_evening.load("../image/Weather_CloudAndSun.png");
         pic_morning.load("../image/Weather_CloudAndSun.png");
-        file.setFileName("../conf.txt");;
+        file.setFileName("conf.txt");;
     }
 
 
@@ -50,10 +50,10 @@ dayExtend::~dayExtend()
 {
     QFile file;
     if(data->getSystem() == "Windows"){
-        file.setFileName("..\\conf.txt");
+        file.setFileName("conf.txt");
     }
     else if(data->getSystem() == "Linux"){
-        file.setFileName("../conf.txt");;
+        file.setFileName("conf.txt");;
     }
     if (file.open(QIODevice::WriteOnly))
     {
@@ -124,10 +124,10 @@ void dayExtend::update()
 {
     QFile file;
     if(data->getSystem() == "Windows"){
-        file.setFileName("..\\conf.txt");
+        file.setFileName("conf.txt");
     }
     else if(data->getSystem() == "Linux"){
-        file.setFileName("../conf.txt");;
+        file.setFileName("conf.txt");;
     }
     if (file.open(QIODevice::WriteOnly))
     {

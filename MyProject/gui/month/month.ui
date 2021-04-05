@@ -57,29 +57,16 @@
     <string>City</string>
    </property>
   </widget>
-  <widget class="QGroupBox" name="monthBox">
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>-1</x>
-     <y>-11</y>
+     <x>0</x>
+     <y>0</y>
      <width>701</width>
-     <height>421</height>
+     <height>411</height>
     </rect>
    </property>
-   <property name="title">
-    <string/>
-   </property>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>701</width>
-      <height>411</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="monthLayout"/>
-   </widget>
+   <layout class="QGridLayout" name="monthLayout"/>
   </widget>
  </widget>
  <resources/>

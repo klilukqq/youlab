@@ -15,13 +15,16 @@ int main(int argc, char *argv[])
 
     QString network = controller.checkNetwork();
 
+    QTextStream cout(stdout);
     if(network == "yes")
     {
+        cout <<"1111111111";
         dbLoad.loader();
         //networkLoader.loader();
     }
-    else if (network == "no")
+    else
     {
+        cout <<"2222222222222";
         dbLoad.loader();
     }
 
