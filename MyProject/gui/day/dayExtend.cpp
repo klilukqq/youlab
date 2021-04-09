@@ -1,6 +1,8 @@
 #include "dayExtend.h"
 #include "ui_dayExtend.h"
-#include <QDir>
+#include "gui/month/month.h"
+
+#include <QTextStream>
 
 dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     : QWidget(parent)
@@ -11,31 +13,15 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     this->data = data;
     //data->setLimit(3);
 
-    QFile file;
-    QString locateFile = ".." + QDir::separator() + "";
-    if(data->getSystem() == "Windows"){
-        pic_day.load("..\\image\\Weather_Sun.png");
-        pic_night.load("..\\image\\Weather_Cloud.png");
-        pic_evening.load("..\\image\\Weather_CloudAndSun.png");
-        pic_morning.load("..\\image\\Weather_CloudAndSun.png");
-        file.setFileName("conf.txt");
-    }
-    else if(data->getSystem() == "Linux"){
-        pic_day.load("../image/Weather_Sun.png");
-        pic_night.load("../image/Weather_Cloud.png");
-        pic_evening.load("../image/Weather_CloudAndSun.png");
-        pic_morning.load("../image/Weather_CloudAndSun.png");
-        file.setFileName("conf.txt");;
-    }
-
-
-    if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
-    {
-        data->setLocate(file.readAll());
-        file.close();
-    }
+    pic_day.load("../image/Weather_Sun.png");
+    pic_night.load("../image/Weather_Cloud.png");
+    pic_evening.load("../image/Weather_CloudAndSun.png");
+    pic_morning.load("../image/Weather_CloudAndSun.png");
 
     ui->setupUi(this);
+
+    if(data->getUpperWindow())
+        this->setWindowFlags(Qt::WindowStaysOnTopHint);
 
     ui->day_image->setPixmap(pic_day);
     ui->evening_image->setPixmap(pic_evening);
@@ -48,18 +34,8 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
 
 dayExtend::~dayExtend()
 {
-    QFile file;
-    if(data->getSystem() == "Windows"){
-        file.setFileName("conf.txt");
-    }
-    else if(data->getSystem() == "Linux"){
-        file.setFileName("conf.txt");;
-    }
-    if (file.open(QIODevice::WriteOnly))
-    {
-        file.write(ui->City->text().toUtf8());
-        file.close();
-    }
+    QTextStream cout(stdout);
+    cout <<"23";
     delete data;
     delete ui;
 }
@@ -84,6 +60,7 @@ void dayExtend::on_ChangeFormat_clicked()
     week* type = new week(data);
     type->setGeometry(this->geometry());
     type->show();
+
 }
 
 
@@ -118,22 +95,27 @@ void dayExtend::on_Prev_day_clicked()
     //ui->Prev_day->setEnabled(false);
 }
 
+void dayExtend::prevFormat()
+{
+    month* type = new month(data);
+    type->show();
+}
+
+void dayExtend::nextFormat()
+{
+    week* type = new week(data);
+    type->show();
+}
+
 
 
 void dayExtend::update()
 {
-    QFile file;
-    if(data->getSystem() == "Windows"){
-        file.setFileName("conf.txt");
-    }
-    else if(data->getSystem() == "Linux"){
-        file.setFileName("conf.txt");;
-    }
-    if (file.open(QIODevice::WriteOnly))
-    {
-        file.write(data->getLocate().toUtf8());
-        file.close();
-    }
+    this->setWindowFlags(Qt::WindowStaysOnTopHint);
+    if(data->getUpperWindow() == 0)
+        this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
+    this->show();
+
     ui->day_image->setPixmap(pic_day);
     ui->evening_image->setPixmap(pic_evening);
     ui->morning_image->setPixmap(pic_morning);

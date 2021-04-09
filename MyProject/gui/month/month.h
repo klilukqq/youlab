@@ -25,11 +25,11 @@ public:
     ~month();
 
 private slots:
-    void on_Setting_clicked();
-
-    void on_ChangeFormat_clicked();
+    void on_Setting_clicked(); 
 
 public slots:
+
+    void on_ChangeFormat_clicked();
 
     void update();
 

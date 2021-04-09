@@ -29,13 +29,17 @@ public:
 private slots:
     void on_Setting_clicked();
 
-    void on_ChangeFormat_clicked();
-
     void on_Next_day_clicked();
 
     void on_Prev_day_clicked();
 
 public slots:
+
+    void prevFormat();
+
+    void nextFormat();
+
+    void on_ChangeFormat_clicked();
 
     void update();
 

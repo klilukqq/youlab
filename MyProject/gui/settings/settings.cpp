@@ -17,15 +17,27 @@ settings::settings(dataHandler* data,QWidget *parent):
     ui(new Ui::settings)
 {
     ui->setupUi(this);
+    //ui->format_combo->set
     this->setWindowTitle("Настройки");
-    ui->text_locator->setText(data->getLocate());
-    this->data = data;
-    //connect(ui->SettingApply,SIGNAL(clicked()),this,);
-}
 
+    this->data = data;
+
+    ui->text_locator->setText(data->getLocate());
+    this->ui->format_combo->setCurrentIndex(data->getTempStartFormat());
+    this->ui->setting_upper_window->setCheckState(data->getUpperWindow() == 1?Qt::Checked:Qt::Unchecked);
+
+//    PrevLocation = data->getLocate();
+//    prevCombo = data->getTempStartFormat();
+//    prevWindowParam = data->getUpperWindow();
+
+    this->setWindowFlags(Qt::WindowStaysOnTopHint);
+}
+//Qt::Checked
 settings::~settings()
 {
-    //parentWidget()->
+    data->setLocate(ui->text_locator->text());
+    data->setTempStartFormat(ui->format_combo->currentIndex());
+    data->setUpperWindow(ui->setting_upper_window->isChecked());
     delete ui;
 }
 
@@ -45,22 +57,38 @@ void settings::on_gps_locator_clicked()
 
 void settings::on_SettingOK_clicked()
 {
-
     data->setLocate(ui->text_locator->text());
+    data->setTempStartFormat(ui->format_combo->currentIndex());
+    data->setUpperWindow(ui->setting_upper_window->isChecked());
     settings::close();
     emit signalFromButton();
+    //this->set;
+    delete this;
 }
 
 void settings::on_SettingApply_clicked()
 {
-    PrevLocation = data->getLocate();
     data->setLocate(ui->text_locator->text());
+    data->setTempStartFormat(ui->format_combo->currentIndex());
+    data->setUpperWindow(ui->setting_upper_window->isChecked());
+
     emit signalFromButton();
+    this->raise();
+    applayed = true;
+
 }
 
 void settings::on_SettingCancel_clicked()
-{
-    ui->text_locator->setText(PrevLocation);
-    data->setLocate(PrevLocation);
-    emit signalFromButton();
+{   if(applayed == false){
+        ui->text_locator->setText(data->getLocate());
+        this->ui->format_combo->setCurrentIndex(data->getTempStartFormat());
+        this->ui->setting_upper_window->setCheckState(data->getUpperWindow() == 1?Qt::Checked:Qt::Unchecked);
+        data->setLocate(PrevLocation);
+        emit signalFromButton();
+        this->raise();
+    }
+    else{
+        settings::close();
+        delete this;
+    }
 }

@@ -12,8 +12,10 @@ class settings : public QWidget
 {
     Q_OBJECT
     dataHandler* data;
-
+    bool applayed;
     QString PrevLocation;
+    int prevCombo;
+    int prevWindowParam;
 
 public:
     explicit settings(QWidget *parent = nullptr);
@@ -22,7 +24,9 @@ public:
     dataHandler* getData(dataHandler*);
 
 
+
 signals:
+    void signalForUpdate();
     void signalFromButton();
 
 private slots:

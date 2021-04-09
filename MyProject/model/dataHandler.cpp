@@ -1,5 +1,7 @@
 #include "dataHandler.h"
 
+#include <QTextStream>
+
 QDate dataHandler::getDate()
 {
     return date;
@@ -14,13 +16,36 @@ void dataHandler::setDate(const QDate &value)
 
 dataHandler::dataHandler(){
 
-#ifdef Q_OS_WIN32
-    systemTempOs = "Windows";
-#endif
-#ifdef Q_OS_LINUX
-    systemTempOs = "Linux";
-#endif
     date = QDate::currentDate();
+
+    if(this->getLocate() == NULL){
+        QFile file;
+        file.setFileName("conf.txt");
+        if ((file.open(QIODevice::ReadOnly)))
+        {
+            this->setLocate(file.readLine());
+            this->setTempStartFormat(file.read(1).toInt());
+            this->setUpperWindow(file.read(1).toInt());
+            file.close();
+        }
+    }
+}
+
+dataHandler::~dataHandler()
+{
+    QTextStream cout(stdout);
+    cout <<"23";
+    QFile file;
+    file.setFileName("conf.txt");
+    if (file.open(QIODevice::WriteOnly))
+    {
+        file.write(this->getLocate().toUtf8());
+        QTextStream writeStream(&file);
+        writeStream << this->getTempStartFormat();
+        writeStream << this->getUpperWindow();
+
+        file.close();
+    }
 }
 
 bool dataHandler::nextDate(){
@@ -35,11 +60,28 @@ bool dataHandler::nextDate(){
     return false;
 }
 
-QString dataHandler::getSystem(){
-    return systemTempOs;
+
+
+
+int dataHandler::getTempStartFormat() const
+{
+    return tempStartFormat;
 }
 
+void dataHandler::setTempStartFormat(int value)
+{
+    tempStartFormat = value;
+}
 
+int dataHandler::getUpperWindow() const
+{
+    return upperWindow;
+}
+
+void dataHandler::setUpperWindow(int value)
+{
+    upperWindow = value;
+}
 
 void dataHandler::setData(int i,QDate dbDate,int dbNight,int dbMorning,int dbDay,int dbEvening,QString dbNightWeather,QString dbMorningWeather,QString dbDayWeather,QString dbEveningWeather)
 {

@@ -2,7 +2,7 @@
 #define WEATHERCONTROLLER_H
 
 #include <QObject>
-
+#include "model/dataHandler.h"
 
 
 #include "QEventLoop"
@@ -15,7 +15,7 @@ class weatherController : public QObject
 public:
     ~weatherController();
     weatherController();
-    QString checkNetwork();
+    void checkNetwork(dataHandler *data);
 };
 
 #endif // WEATHERCONTROLLER_H

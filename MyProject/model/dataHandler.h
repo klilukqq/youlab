@@ -5,14 +5,17 @@
 
 #include "QString"
 #include "QDate"
+#include "QLabel"
+#include "QFile"
 
 class dataHandler
 {
     QDate date;
     int limit = 3;
     QString Get;
-    QString systemTempOs;
-    QString locate;
+    QString locate = NULL;
+    int tempStartFormat = 0;
+    int upperWindow = 0;
     //можно подобрать
 public:
     int sumDate;
@@ -32,7 +35,7 @@ public:
     void setData(int i, QDate, int, int, int, int, QString, QString, QString, QString);
     void setLimit(int lim);
     dataHandler();
-    QString getSystem();
+    ~dataHandler();
     QString getString_date();
     bool nextDate();
     bool prevDate();
@@ -40,6 +43,10 @@ public:
     void setDate(const QDate &value);
     void setLocate(QString);
     QString getLocate();
+    int getTempStartFormat() const;
+    void setTempStartFormat(int value);
+    int getUpperWindow() const;
+    void setUpperWindow(int value);
 };
 
 

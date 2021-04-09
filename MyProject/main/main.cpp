@@ -1,7 +1,7 @@
 #include "gui/day/dayExtend.h"
+#include "gui/month/month.h"
+#include "gui/week/week.h"
 #include "../model/weatherController.h"
-#include "../model/dbLoader.h"
-#include "../model/remoteServiceLoader.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -10,26 +10,21 @@ int main(int argc, char *argv[])
     dataHandler* data = new dataHandler();
     weatherController controller;
 
-    dbLoader dbLoad(data);
-    remoteServiceLoader networkLoader(data);
+    controller.checkNetwork(data);
 
-    QString network = controller.checkNetwork();
+    dayExtend d(data);
+    //week w(data);
+    //month m(data);
 
-    QTextStream cout(stdout);
-    if(network == "yes")
-    {
-        cout <<"1111111111";
-        dbLoad.loader();
-        //networkLoader.loader();
+    if(data->getTempStartFormat() == 0){
+        d.show();
     }
-    else
-    {
-        cout <<"2222222222222";
-        dbLoad.loader();
+    else if(data->getTempStartFormat() == 1){
+        d.nextFormat();
     }
-
-    dayExtend w(data);
-    w.show();
+    else{
+        d.prevFormat();
+    }
 
     return a.exec();
 }

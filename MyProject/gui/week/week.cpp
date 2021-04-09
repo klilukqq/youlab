@@ -13,18 +13,8 @@ week::week(dataHandler* data, QWidget *parent) :
     //this->setGeometry(parent->geometry());
     //ui->City->setText(data->getLocate());
 
-    QFile file;
-    if(data->getSystem() == "Windows"){
-        file.setFileName("conf.txt");
-    }
-    else if(data->getSystem() == "Linux"){
-        file.setFileName("conf.txt");;
-    }
-    if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
-    {
-        data->setLocate(file.readAll());
-        file.close();
-    }
+    if(data->getUpperWindow())
+        this->setWindowFlags(Qt::WindowStaysOnTopHint);
 
     ui->City->setText(data->getLocate());
 
@@ -49,6 +39,7 @@ week::week(dataHandler* data, QWidget *parent) :
 
 week::~week()
 {
+    delete data;
     delete ui;
 }
 
@@ -72,18 +63,10 @@ void week::on_ChangeFormat_clicked()
 
 void week::update()
 {
-    QFile file;
-    if(data->getSystem() == "Windows"){
-        file.setFileName("conf.txt");
-    }
-    else if(data->getSystem() == "Linux"){
-        file.setFileName("conf.txt");;
-    }
-    if (file.open(QIODevice::WriteOnly))
-    {
-        file.write(data->getLocate().toUtf8());
-        file.close();
-    }
+    this->setWindowFlags(Qt::WindowStaysOnTopHint);
+    if(data->getUpperWindow() == 0)
+        this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
+    this->show();
     ui->City->setText(data->getLocate());
 }
 

@@ -1,4 +1,7 @@
 #include "weatherController.h"
+#include "../model/dbLoader.h"
+#include "../model/remoteServiceLoader.h"
+
 
 weatherController::~weatherController()
 {
@@ -10,23 +13,28 @@ weatherController::weatherController()
 
 }
 
-QString weatherController::checkNetwork()
+void weatherController::checkNetwork(dataHandler* data)
 {
     QNetworkAccessManager nam;
     QNetworkRequest req(QUrl("http://www.google.com"));
     QNetworkReply* reply = nam.get(req);
     QEventLoop loop;
+    QTextStream cout(stdout);
+    dbLoader dbLoad(data);
+    remoteServiceLoader networkLoader(data);
     connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();
-    QString type;
     if(reply->bytesAvailable())
     {
-        type = "yes";
-        return type;
+        cout <<"1111111111";
+        dbLoad.loader();
+        //networkLoader.loader();
     }
     else
     {
-        type = "no";
-        return type;
+        cout <<"2222222222222";
+        dbLoad.loader();
     }
+
+
 }

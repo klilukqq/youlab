@@ -11,21 +11,9 @@ month::month(dataHandler* data,QWidget *parent) :
     this->data = data;
     ui->setupUi(this);
 
-    QFile file;
-    //QDir::separator()
-    if(data->getSystem() == "Windows"){
-        file.setFileName("conf.txt");
-    }
-    else if(data->getSystem() == "Linux"){
-        file.setFileName("conf.txt");;
-    }
-    if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
-    {
-        data->setLocate(file.readAll());
-        file.close();
-    }
-    //QTextStream out(stdout);
-// day[0].setGeometry(5,5,25,10);
+    if(data->getUpperWindow())
+        this->setWindowFlags(Qt::WindowStaysOnTopHint);
+
     ui->City->setText(data->getLocate());
 
     QDate tempDate;
@@ -49,6 +37,7 @@ month::month(dataHandler* data,QWidget *parent) :
 
 month::~month()
 {
+    delete data;
     delete[] day;
     delete ui;
 }
@@ -73,17 +62,9 @@ void month::on_ChangeFormat_clicked()
 
 void month::update()
 {
-    QFile file;
-    if(data->getSystem() == "Windows"){
-        file.setFileName("conf.txt");
-    }
-    else if(data->getSystem() == "Linux"){
-        file.setFileName("conf.txt");;
-    }
-    if (file.open(QIODevice::WriteOnly))
-    {
-        file.write(data->getLocate().toUtf8());
-        file.close();
-    }
+    this->setWindowFlags(Qt::WindowStaysOnTopHint);
+    if(data->getUpperWindow() == 0)
+        this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
+    this->show();
     ui->City->setText(data->getLocate());
 }
