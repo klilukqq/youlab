@@ -50,6 +50,7 @@ void dayExtend::on_Setting_clicked()
                           ,this->geometry().height());
     QObject::connect(setting,&settings::signalFromButton,this,&dayExtend::update);
     setting->show();
+    setting->activateWindow();
     //ui->City->setText(data->getLocate());
 }
 
@@ -111,10 +112,17 @@ void dayExtend::nextFormat()
 
 void dayExtend::update()
 {
-    this->setWindowFlags(Qt::WindowStaysOnTopHint);
+    //Починить на линуксе, экран опускается
+    this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
+    //this->setWindowFlags(Qt::WindowStaysOnTopHint);
     if(data->getUpperWindow() == 0)
-        this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
+        //this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
+        this->setWindowFlag(Qt::WindowStaysOnTopHint,false);
+    else
+        this->setWindowFlags(Qt::WindowStaysOnTopHint);
     this->show();
+    QTextStream cout(stdout);
+    cout <<data->getUpperWindow();
 
     ui->day_image->setPixmap(pic_day);
     ui->evening_image->setPixmap(pic_evening);

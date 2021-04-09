@@ -50,6 +50,7 @@ void week::on_Setting_clicked()
                           ,this->geometry().height());
     QObject::connect(setting,&settings::signalFromButton,this,&week::update);
     setting->show();
+    setting->activateWindow();
 
 }
 

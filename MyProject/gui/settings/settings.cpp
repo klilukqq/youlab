@@ -1,6 +1,8 @@
 #include "settings.h"
 #include "ui_settings.h"
 
+#include <QTextStream>
+
 //#include <QGeoRoute>
 
 
@@ -31,12 +33,13 @@ settings::settings(dataHandler* data,QWidget *parent):
 //    prevWindowParam = data->getUpperWindow();
 
     this->setWindowFlags(Qt::WindowStaysOnTopHint);
+    this->activateWindow();
 }
 //Qt::Checked
 settings::~settings()
 {
-    data->setLocate(ui->text_locator->text());
-    data->setTempStartFormat(ui->format_combo->currentIndex());
+//    data->setLocate(ui->text_locator->text());
+//    data->setTempStartFormat(ui->format_combo->currentIndex());
     data->setUpperWindow(ui->setting_upper_window->isChecked());
     delete ui;
 }
@@ -71,6 +74,9 @@ void settings::on_SettingApply_clicked()
     data->setLocate(ui->text_locator->text());
     data->setTempStartFormat(ui->format_combo->currentIndex());
     data->setUpperWindow(ui->setting_upper_window->isChecked());
+
+    QTextStream cout(stdout);
+    cout <<ui->setting_upper_window->isChecked();
 
     emit signalFromButton();
     this->raise();

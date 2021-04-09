@@ -49,6 +49,7 @@ void month::on_Setting_clicked()
                           ,this->geometry().height());
     QObject::connect(setting,&settings::signalFromButton,this,&month::update);
     setting->show();
+    setting->activateWindow();
 }
 
 void month::on_ChangeFormat_clicked()
