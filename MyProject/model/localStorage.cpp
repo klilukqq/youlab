@@ -4,7 +4,7 @@ localStorage::localStorage(dataHandler* data)
 {
     this->data = data;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("../MyDB.db");
+    db.setDatabaseName(":/sysFiles/MyDB.db");
     db.open();
 }
 

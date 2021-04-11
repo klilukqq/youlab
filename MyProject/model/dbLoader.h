@@ -13,6 +13,8 @@ class dbLoader : public ILoader
 public:
     ~dbLoader();
     dbLoader(dataHandler* data);
+    void openDB();
+    void closeDB();
     void loader() override;
     void clearOldInfo();
 };

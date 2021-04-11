@@ -20,20 +20,24 @@ void weatherController::checkNetwork(dataHandler* data)
     QNetworkReply* reply = nam.get(req);
     QEventLoop loop;
     QTextStream cout(stdout);
-    dbLoader dbLoad(data);
+    dbLoader *dbLoad = new dbLoader(data);
     remoteServiceLoader networkLoader(data);
     connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();
     if(reply->bytesAvailable())
     {
         cout <<"1111111111";
-        dbLoad.loader();
+        dbLoad->openDB();
+        dbLoad->loader();
+        dbLoad->closeDB();
         //networkLoader.loader();
     }
     else
     {
         cout <<"2222222222222";
-        dbLoad.loader();
+        dbLoad->openDB();
+        dbLoad->loader();
+        dbLoad->closeDB();
     }
 
 

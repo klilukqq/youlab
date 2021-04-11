@@ -20,7 +20,7 @@ dataHandler::dataHandler(){
 
     if(this->getLocate() == NULL){
         QFile file;
-        file.setFileName("conf.txt");
+        file.setFileName(":/conf.txt");
         if ((file.open(QIODevice::ReadOnly)))
         {
             this->setLocate(file.readLine());
@@ -36,7 +36,7 @@ dataHandler::~dataHandler()
     QTextStream cout(stdout);
     cout <<"23";
     QFile file;
-    file.setFileName("conf.txt");
+    file.setFileName(":/conf.txt");
     if (file.open(QIODevice::WriteOnly))
     {
         file.write(this->getLocate().toUtf8());
@@ -83,16 +83,21 @@ void dataHandler::setUpperWindow(int value)
     upperWindow = value;
 }
 
-void dataHandler::setData(int i,QDate dbDate,int dbNight,int dbMorning,int dbDay,int dbEvening,QString dbNightWeather,QString dbMorningWeather,QString dbDayWeather,QString dbEveningWeather)
+void dataHandler::setData(int i,QDate dbDate,int dbDay,QString dbDayWeather)
+{
+    Date[i] = dbDate;
+    day[i] = dbDay;
+    dayWeather[i] = dbDayWeather;
+}
+
+void dataHandler::setDataDay(int i,QDate dbDate,int dbNight,int dbMorning,int dbEvening,QString dbNightWeather,QString dbMorningWeather,QString dbEveningWeather)
 {
     Date[i] = dbDate;
     night[i] = dbNight;
     morning[i] = dbMorning;
-    day[i] = dbDay;
     evening[i] = dbEvening;
     nightWeather[i] = dbNightWeather;
     morningWeather[i] = dbMorningWeather;
-    dayWeather[i] = dbDayWeather;
     eveningWeather[i] = dbEveningWeather;
 }
 

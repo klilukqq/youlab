@@ -13,10 +13,10 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     this->data = data;
     //data->setLimit(3);
 
-    pic_day.load("../image/Weather_Sun.png");
-    pic_night.load("../image/Weather_Cloud.png");
-    pic_evening.load("../image/Weather_CloudAndSun.png");
-    pic_morning.load("../image/Weather_CloudAndSun.png");
+    pic_day.load(":/image/image/Weather_Sun.png");
+    pic_night.load(":/image/image/Weather_Cloud.png");
+    pic_evening.load(":/image/image/Weather_CloudAndSun.png");
+    pic_morning.load(":/image/image/Weather_CloudAndSun.png");
 
     ui->setupUi(this);
 

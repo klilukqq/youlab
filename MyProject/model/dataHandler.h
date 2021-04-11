@@ -32,7 +32,7 @@ public:
     QString dayWeather[45];
     QString eveningWeather[45];
 
-    void setData(int i, QDate, int, int, int, int, QString, QString, QString, QString);
+    void setData(int, QDate, int, QString);
     void setLimit(int lim);
     dataHandler();
     ~dataHandler();
@@ -47,6 +47,7 @@ public:
     void setTempStartFormat(int value);
     int getUpperWindow() const;
     void setUpperWindow(int value);
+    void setDataDay(int, QDate, int, int, int, QString, QString, QString);
 };
 
 

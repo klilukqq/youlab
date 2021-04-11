@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>image/Weather_Cloud.png</file>
+        <file>image/Weather_CloudAndSun.png</file>
+        <file>image/Weather_Sun.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>conf.txt</file>
+        <file>MyDB.db</file>
+    </qresource>
+</RCC>
