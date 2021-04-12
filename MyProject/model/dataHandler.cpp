@@ -20,7 +20,7 @@ dataHandler::dataHandler(){
 
     if(this->getLocate() == NULL){
         QFile file;
-        file.setFileName(":/conf.txt");
+        file.setFileName("./../settings.txt");
         if ((file.open(QIODevice::ReadOnly)))
         {
             this->setLocate(file.readLine());
@@ -36,7 +36,7 @@ dataHandler::~dataHandler()
     QTextStream cout(stdout);
     cout <<"23";
     QFile file;
-    file.setFileName(":/conf.txt");
+    file.setFileName("./../settings.txt");
     if (file.open(QIODevice::WriteOnly))
     {
         file.write(this->getLocate().toUtf8());

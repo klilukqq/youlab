@@ -2,6 +2,8 @@
 #include "QVariant"
 #include <QSqlError>
 #include <QTextStream>
+#include <QDir>
+#include <QSettings>
 
 dbLoader::~dbLoader()
 {
@@ -15,13 +17,15 @@ dbLoader::dbLoader(dataHandler* data)
 
 void dbLoader::openDB()
 {
+    //
     db = QSqlDatabase::addDatabase("QSQLITE");
 
-    db.setDatabaseName(":/MyDB.db");
+    db.setDatabaseName("./../MyDB.db");
+
     QTextStream cout(stdout);
     db.open();
-    cout <<db.isOpen();
-    cout <<db.lastError().text() << Qt::endl;
+    //cout <<db.isOpen();
+    //cout <<db.lastError().text() ;
 
 }
 
@@ -41,6 +45,7 @@ void dbLoader::loader()
         data->setData(i,query->value(0).toDate(),query->value(1).toInt(),query->value(2).toString());
         i++;
     }
+    data->sumDate = i;
     i = 0;
     query->exec("SELECT Date, morningTemp, eveningTemp, nightTemp, morningString, eveningString, nightString FROM WeatherDay;");
     while(query->next()){
@@ -50,13 +55,12 @@ void dbLoader::loader()
         query->value(5).toString(),query->value(6).toString());
         i++;
     }
-    data->sumDate = i;
 }
 
 void dbLoader::clearOldInfo()
 {
     QSqlQuery query;
-    //написать запрос удаления старой инфы
+
     query.exec("DELETE FROM Weather;");
     query.exec("DELETE FROM WeatherDay;");
 }

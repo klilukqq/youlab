@@ -3,10 +3,16 @@
 #include "gui/week/week.h"
 #include "../model/weatherController.h"
 #include <QApplication>
+#include "../model/copyfile.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    copyFile copyManager;
+    copyManager.copyFileDB();
+    copyManager.copyFileSettings();
+
     dataHandler* data = new dataHandler();
     weatherController controller;
 
@@ -15,6 +21,9 @@ int main(int argc, char *argv[])
     dayExtend d(data);
     //week w(data);
     //month m(data);
+
+
+//файлы только на считывание
 
     if(data->getTempStartFormat() == 0){
         d.show();
