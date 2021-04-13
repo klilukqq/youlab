@@ -16,7 +16,7 @@ SOURCES += \
     gui/week/week.cpp \
     gui/month/month.cpp \
     gui/settings/settings.cpp \
-    model/copyfile.cpp \
+    model/copyFile.cpp \
     model/dataHandler.cpp \
     model/dbLoader.cpp \
     model/localStorage.cpp \
@@ -30,7 +30,7 @@ HEADERS += \
     gui/settings/settings.h \
     gui/week/week.h \
     model/ILoader.h \
-    model/copyfile.h \
+    model/copyFile.h \
     model/dataHandler.h \
     model/dbLoader.h \
     model/localStorage.h \
