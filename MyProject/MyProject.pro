@@ -20,6 +20,7 @@ SOURCES += \
     model/dataHandler.cpp \
     model/dbLoader.cpp \
     model/localStorage.cpp \
+    model/pictureChooser.cpp \
     model/remoteServiceLoader.cpp \
     model/weatherController.cpp
 
@@ -34,6 +35,7 @@ HEADERS += \
     model/dataHandler.h \
     model/dbLoader.h \
     model/localStorage.h \
+    model/pictureChooser.h \
     model/remoteServiceLoader.h \
     model/weatherController.h
 

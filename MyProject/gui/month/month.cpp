@@ -2,6 +2,7 @@
 #include <QTextStream>
 #include <QDir>
 #include <QDate>
+#include <QDebug>
 
 month::month(dataHandler* data,QWidget *parent) :
     QWidget(parent),
@@ -21,14 +22,23 @@ month::month(dataHandler* data,QWidget *parent) :
     //out << tempDate.currentDate().daysInMonth();
     int numberDays = tempDate.currentDate().daysInMonth();
 
+    tempDate.setDate(tempDate.currentDate().year(),tempDate.currentDate().month(),1);
+    int k = 0;
+    for (;k < 45 ;k++ ) {
+        //возможно изменить формат
+        if(data->Date[k].toString() == date.toString())
+            break;
+    }
+
     for(int i = 1; i <= numberDays;i++){
     tempDate.setDate(tempDate.currentDate().year(),tempDate.currentDate().month(),i);
     //out << tempDate.toString(Qt::ISODate);
     day[i-1].setDate(tempDate.toString(Qt::ISODate));
 
-    //Добавить заполнение
-
-
+    //заполнение
+    day[i-1].setTemp(data->day[k],data->night[k]);
+    day[i-1].setPic(data->chooseSmallPic(data->dayWeather[k]));
+    k++;
 
     ui->monthLayout->addWidget(&day[i-1],(i-1)/6,(i-1)%6);
     }

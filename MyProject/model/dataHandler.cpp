@@ -101,6 +101,18 @@ void dataHandler::setDataDay(int i,QDate dbDate,int dbNight,int dbMorning,int db
     eveningWeather[i] = dbEveningWeather;
 }
 
+QString dataHandler::choosePic(QString picName)
+{
+    pictureChooser chooser;
+    return chooser.GetRightName(picName);
+}
+
+QString dataHandler::chooseSmallPic(QString picName)
+{
+    pictureChooser chooser;
+    return chooser.GetRightSmallName(picName);
+}
+
 void dataHandler::setLimit(int lim){
     this->limit = lim;
 }

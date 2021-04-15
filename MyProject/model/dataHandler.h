@@ -7,6 +7,7 @@
 #include "QDate"
 #include "QLabel"
 #include "QFile"
+#include "pictureChooser.h"
 
 class dataHandler
 {
@@ -48,6 +49,10 @@ public:
     int getUpperWindow() const;
     void setUpperWindow(int value);
     void setDataDay(int, QDate, int, int, int, QString, QString, QString);
+    QString choosePic(QString);
+
+
+    QString chooseSmallPic(QString picName);
 };
 
 

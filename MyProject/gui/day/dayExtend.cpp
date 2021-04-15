@@ -77,6 +77,31 @@ void dayExtend::on_Next_day_clicked()
         ui->Next_day->setEnabled(false);
     }
 
+    int i = 0;
+    for (;i < 45 ;i++ ) {
+        //возможно изменить формат
+        if(data->Date[i].toString() == ui->temp_date->text())
+            break;
+    }
+
+//    ui->day_deg->setHtml(QString::number(data->day[i]));
+//    ui->day_weather->setHtml(data->dayWeather[i]);
+
+//    ui->night_deg->setHtml(QString::number(data->night[i]));
+//    ui->night_weather->setHtml(data->nightWeather[i]);
+
+//    ui->evening_deg->setHtml(QString::number(data->evening[i]));
+//    ui->evening_weather->setHtml(data->eveningWeather[i]);
+
+//    ui->morning_deg->setHtml(QString::number(data->morning[i]));
+//    ui->morning_weather->setHtml(data->morningWeather[i]);
+
+
+//    ui->day_image->setPixmap(data->choosePic(data->dayWeather[i]));
+//    ui->evening_image->setPixmap(data->choosePic(data->eveningWeather[i]));
+//    ui->morning_image->setPixmap(data->choosePic(data->morningWeather[i]));
+//    ui->night_image->setPixmap(data->choosePic(data->nightWeather[i]));
+
 }
 
 void dayExtend::on_Prev_day_clicked()
@@ -90,10 +115,30 @@ void dayExtend::on_Prev_day_clicked()
         ui->temp_date->setText(data->getString_date());
         ui->Prev_day->setEnabled(false);
     }
-    //data->prevDate();
 
-    //ui->temp_date->setText(data->getString_date());
-    //ui->Prev_day->setEnabled(false);
+    int i = 0;
+    for (;i < 45 ;i++ ) {
+        //возможно изменить формат
+        if(data->Date->toString() == ui->temp_date->text())
+            break;
+    }
+
+//    ui->day_deg->setHtml(QString::number(data->day[i]));
+//    ui->day_weather->setHtml(data->dayWeather[i]);
+
+//    ui->night_deg->setHtml(QString::number(data->night[i]));
+//    ui->night_weather->setHtml(data->nightWeather[i]);
+
+//    ui->evening_deg->setHtml(QString::number(data->evening[i]));
+//    ui->evening_weather->setHtml(data->eveningWeather[i]);
+
+//    ui->morning_deg->setHtml(QString::number(data->morning[i]));
+//    ui->morning_weather->setHtml(data->morningWeather[i]);
+
+//    ui->day_image->setPixmap(data->choosePic(data->choosePic(data->dayWeather[i])));
+//    ui->evening_image->setPixmap(data->choosePic(data->choosePic(data->eveningWeather[i])));
+//    ui->morning_image->setPixmap(data->choosePic(data->choosePic(data->morningWeather[i])));
+//    ui->night_image->setPixmap(data->choosePic(data->choosePic(data->nightWeather[i])));
 }
 
 void dayExtend::prevFormat()
