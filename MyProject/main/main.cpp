@@ -3,7 +3,7 @@
 #include "gui/week/week.h"
 #include "../model/weatherController.h"
 #include <QApplication>
-#include "../model/copyFile.h"
+#include "../model/copyfile.h"
 
 int main(int argc, char *argv[])
 {

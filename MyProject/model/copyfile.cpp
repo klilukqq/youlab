@@ -1,4 +1,4 @@
-#include "copyFile.h"
+#include "../model/copyfile.h"
 #include <QFile>
 
 

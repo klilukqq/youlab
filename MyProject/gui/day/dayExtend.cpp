@@ -102,6 +102,7 @@ void dayExtend::on_Next_day_clicked()
 //    ui->morning_image->setPixmap(data->choosePic(data->morningWeather[i]));
 //    ui->night_image->setPixmap(data->choosePic(data->nightWeather[i]));
 
+    //QImage resize
 }
 
 void dayExtend::on_Prev_day_clicked()
