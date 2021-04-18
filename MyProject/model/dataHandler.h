@@ -18,7 +18,6 @@ class dataHandler
     int tempStartFormat = 0;
     int upperWindow = 0;
     //можно подобрать
-public:
     int sumDate;
 
     QDate Date[45];
@@ -33,6 +32,30 @@ public:
     QString dayWeather[45];
     QString eveningWeather[45];
 
+public:
+
+    QString getnightWeather(int i);
+    QString getmorningWeather(int i);
+    QString getdayWeather(int i);
+    QString geteveningWeather(int i);
+
+    void setnightWeather(int i, QString value);
+    void setmorningWeather(int i, QString value);
+    void setdayWeather(int i, QString value);
+    void seteveningWeather(int i, QString value);
+
+    int getnight(int i);
+    int getmorning(int i);
+    int getday(int i);
+    int getevening(int i);
+
+    void setnight(int i, int value);
+    void setmorning(int i, int value);
+    void setday(int i, int value);
+    void setevening(int i, int value);
+
+    void setDateMass(QDate date,int i);
+    QDate getDateMass(int i);
     void setData(int, QDate, int, QString);
     void setLimit(int lim);
     dataHandler();
@@ -53,6 +76,8 @@ public:
 
 
     QString chooseSmallPic(QString picName);
+    int getSumDate() const;
+    void setSumDate(int value);
 };
 
 

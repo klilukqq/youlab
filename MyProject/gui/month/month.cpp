@@ -22,13 +22,17 @@ month::month(dataHandler* data,QWidget *parent) :
     //out << tempDate.currentDate().daysInMonth();
     int numberDays = tempDate.currentDate().daysInMonth();
 
+
+
     tempDate.setDate(tempDate.currentDate().year(),tempDate.currentDate().month(),1);
     int k = 0;
     for (;k < 45 ;k++ ) {
         //возможно изменить формат
-        if(data->Date[k].toString() == date.toString())
+        if(data->getDateMass(k).toString() == tempDate.toString())
             break;
     }
+
+    QPixmap* frame;
 
     for(int i = 1; i <= numberDays;i++){
     tempDate.setDate(tempDate.currentDate().year(),tempDate.currentDate().month(),i);
@@ -36,8 +40,9 @@ month::month(dataHandler* data,QWidget *parent) :
     day[i-1].setDate(tempDate.toString(Qt::ISODate));
 
     //заполнение
-    day[i-1].setTemp(data->day[k],data->night[k]);
-    day[i-1].setPic(data->chooseSmallPic(data->dayWeather[k]));
+    day[i-1].setTemp(data->getday(k),data->getnight(k));
+    frame = new QPixmap(data->choosePic(data->getdayWeather(k)));
+    day[i-1].setPic(frame->scaled(51,51));
     k++;
 
     ui->monthLayout->addWidget(&day[i-1],(i-1)/6,(i-1)%6);

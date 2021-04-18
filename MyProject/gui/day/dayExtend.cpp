@@ -13,23 +13,55 @@ dayExtend::dayExtend(dataHandler* data,QWidget *parent)
     this->data = data;
     //data->setLimit(3);
 
-    pic_day.load(":/image/image/Weather_Sun.png");
-    pic_night.load(":/image/image/Weather_Cloud.png");
-    pic_evening.load(":/image/image/Weather_CloudAndSun.png");
-    pic_morning.load(":/image/image/Weather_CloudAndSun.png");
-
     ui->setupUi(this);
 
     if(data->getUpperWindow())
         this->setWindowFlags(Qt::WindowStaysOnTopHint);
 
-    ui->day_image->setPixmap(pic_day);
-    ui->evening_image->setPixmap(pic_evening);
-    ui->morning_image->setPixmap(pic_morning);
-    ui->night_image->setPixmap(pic_night);
     ui->temp_date->setText(data->getString_date());
+
+    int i = 0;
+    for (;i < 45 ;i++ ) {
+        if(data->getDateMass(i).toString(Qt::ISODate) == ui->temp_date->text()){
+            break;
+        }
+    }
+
+    ui->day_image->setPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->evening_image->setPixmap(data->choosePic(data->geteveningWeather(i)));
+    ui->morning_image->setPixmap(data->choosePic(data->getmorningWeather(i)));
+    ui->night_image->setPixmap(data->choosePic(data->getnightWeather(i)));
+
+
     ui->City->setText(data->getLocate());
 
+//    QTextStream cout(stdout);
+//    for (int i = 0; i< 45; i ++){
+//        cout << data->Date[i].toString();
+
+//        cout <<data->night[i] ;
+//        cout <<data->morning[i];
+//        cout <<data->day[i];
+//        cout <<data->evening[i] ;
+
+//        cout <<data->nightWeather[i] ;
+//        cout <<data->morningWeather[i] ;
+//        cout <<data->dayWeather[i];
+//        cout <<data->eveningWeather[i];
+//    }
+
+
+    ui->day_deh->setText(QString::number(data->getday(i)));
+    ui->day_weather_2->setText(data->getdayWeather(i));
+
+    ui->night_deh->setText(QString::number(data->getnight(i)));
+    ui->night_weather_2->setText(data->getnightWeather(i));
+
+    ui->evening_deh->setText(QString::number(data->getevening(i)));
+    ui->evening_weather_2->setText(data->geteveningWeather(i));
+
+    ui->morning_deh->setText(QString::number(data->getmorning(i)));
+    ui->morning_weather_2->setText(data->getmorningWeather(i));
 }
 
 dayExtend::~dayExtend()
@@ -80,27 +112,29 @@ void dayExtend::on_Next_day_clicked()
     int i = 0;
     for (;i < 45 ;i++ ) {
         //возможно изменить формат
-        if(data->Date[i].toString() == ui->temp_date->text())
+        if(data->getDateMass(i).toString(Qt::ISODate) == ui->temp_date->text()){
+
             break;
+        }
     }
 
-//    ui->day_deg->setHtml(QString::number(data->day[i]));
-//    ui->day_weather->setHtml(data->dayWeather[i]);
+    ui->day_deh->setText(QString::number(data->getday(i)));
+    ui->day_weather_2->setText(data->getdayWeather(i));
 
-//    ui->night_deg->setHtml(QString::number(data->night[i]));
-//    ui->night_weather->setHtml(data->nightWeather[i]);
+    ui->night_deh->setText(QString::number(data->getnight(i)));
+    ui->night_weather_2->setText(data->getnightWeather(i));
 
-//    ui->evening_deg->setHtml(QString::number(data->evening[i]));
-//    ui->evening_weather->setHtml(data->eveningWeather[i]);
+    ui->evening_deh->setText(QString::number(data->getevening(i)));
+    ui->evening_weather_2->setText(data->geteveningWeather(i));
 
-//    ui->morning_deg->setHtml(QString::number(data->morning[i]));
-//    ui->morning_weather->setHtml(data->morningWeather[i]);
+    ui->morning_deh->setText(QString::number(data->getmorning(i)));
+    ui->morning_weather_2->setText(data->getmorningWeather(i));
 
 
-//    ui->day_image->setPixmap(data->choosePic(data->dayWeather[i]));
-//    ui->evening_image->setPixmap(data->choosePic(data->eveningWeather[i]));
-//    ui->morning_image->setPixmap(data->choosePic(data->morningWeather[i]));
-//    ui->night_image->setPixmap(data->choosePic(data->nightWeather[i]));
+    ui->day_image->setPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->evening_image->setPixmap(data->choosePic(data->geteveningWeather(i)));
+    ui->morning_image->setPixmap(data->choosePic(data->getmorningWeather(i)));
+    ui->night_image->setPixmap(data->choosePic(data->getnightWeather(i)));
 
     //QImage resize
 }
@@ -116,30 +150,33 @@ void dayExtend::on_Prev_day_clicked()
         ui->temp_date->setText(data->getString_date());
         ui->Prev_day->setEnabled(false);
     }
-
+    QTextStream cout(stdout);
     int i = 0;
     for (;i < 45 ;i++ ) {
         //возможно изменить формат
-        if(data->Date->toString() == ui->temp_date->text())
+        if(data->getDateMass(i).toString(Qt::ISODate) == ui->temp_date->text()){
+
             break;
+        }
     }
+    cout << i;
 
-//    ui->day_deg->setHtml(QString::number(data->day[i]));
-//    ui->day_weather->setHtml(data->dayWeather[i]);
+    ui->day_deh->setText(QString::number(data->getday(i)));
+    ui->day_weather_2->setText(data->getdayWeather(i));
 
-//    ui->night_deg->setHtml(QString::number(data->night[i]));
-//    ui->night_weather->setHtml(data->nightWeather[i]);
+    ui->night_deh->setText(QString::number(data->getnight(i)));
+    ui->night_weather_2->setText(data->getnightWeather(i));
 
-//    ui->evening_deg->setHtml(QString::number(data->evening[i]));
-//    ui->evening_weather->setHtml(data->eveningWeather[i]);
+    ui->evening_deh->setText(QString::number(data->getevening(i)));
+    ui->evening_weather_2->setText(data->geteveningWeather(i));
 
-//    ui->morning_deg->setHtml(QString::number(data->morning[i]));
-//    ui->morning_weather->setHtml(data->morningWeather[i]);
+    ui->morning_deh->setText(QString::number(data->getmorning(i)));
+    ui->morning_weather_2->setText(data->getmorningWeather(i));
 
-//    ui->day_image->setPixmap(data->choosePic(data->choosePic(data->dayWeather[i])));
-//    ui->evening_image->setPixmap(data->choosePic(data->choosePic(data->eveningWeather[i])));
-//    ui->morning_image->setPixmap(data->choosePic(data->choosePic(data->morningWeather[i])));
-//    ui->night_image->setPixmap(data->choosePic(data->choosePic(data->nightWeather[i])));
+    ui->day_image->setPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->evening_image->setPixmap(data->choosePic(data->geteveningWeather(i)));
+    ui->morning_image->setPixmap(data->choosePic(data->getmorningWeather(i)));
+    ui->night_image->setPixmap(data->choosePic(data->getnightWeather(i)));
 }
 
 void dayExtend::prevFormat()
@@ -158,11 +195,9 @@ void dayExtend::nextFormat()
 
 void dayExtend::update()
 {
-    //Починить на линуксе, экран опускается
+
     this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
-    //this->setWindowFlags(Qt::WindowStaysOnTopHint);
     if(data->getUpperWindow() == 0)
-        //this->setWindowFlags(this->windowFlags() & (~Qt::WindowStaysOnTopHint));
         this->setWindowFlag(Qt::WindowStaysOnTopHint,false);
     else
         this->setWindowFlags(Qt::WindowStaysOnTopHint);
@@ -170,10 +205,17 @@ void dayExtend::update()
     QTextStream cout(stdout);
     cout <<data->getUpperWindow();
 
-    ui->day_image->setPixmap(pic_day);
-    ui->evening_image->setPixmap(pic_evening);
-    ui->morning_image->setPixmap(pic_morning);
-    ui->night_image->setPixmap(pic_night);
+    int i = 0;
+    for (;i < 45 ;i++ ) {
+        if(data->getDateMass(i).toString(Qt::ISODate) == ui->temp_date->text()){
+            break;
+        }
+    }
+
+    ui->day_image->setPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->evening_image->setPixmap(data->choosePic(data->geteveningWeather(i)));
+    ui->morning_image->setPixmap(data->choosePic(data->getmorningWeather(i)));
+    ui->night_image->setPixmap(data->choosePic(data->getnightWeather(i)));
     ui->temp_date->setText(data->getString_date());
     ui->City->setText(data->getLocate());
 }

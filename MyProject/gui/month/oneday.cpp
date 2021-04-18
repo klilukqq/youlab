@@ -18,7 +18,7 @@ void oneDay::setTemp(int temp1, int temp2)
     ui->deqrMothDay->setText(QString::number(temp1));
     ui->DeqrNightMonht->setText(QString::number(temp2));
 }
-void oneDay::setPic(QString namePic){
+void oneDay::setPic(QPixmap namePic){
     ui->FrameMonth->setPixmap(namePic);
 }
 

@@ -83,6 +83,107 @@ void dataHandler::setUpperWindow(int value)
     upperWindow = value;
 }
 
+int dataHandler::getSumDate() const
+{
+    return sumDate;
+}
+
+void dataHandler::setSumDate(int value)
+{
+    sumDate = value;
+}
+
+QString dataHandler::getnightWeather(int i)
+{
+    return nightWeather[i];
+}
+
+QString dataHandler::getmorningWeather(int i)
+{
+    return morningWeather[i];
+}
+
+QString dataHandler::getdayWeather(int i)
+{
+    return dayWeather[i];
+}
+
+QString dataHandler::geteveningWeather(int i)
+{
+    return eveningWeather[i];
+}
+
+void dataHandler::setnightWeather(int i, QString value)
+{
+    nightWeather[i] = value;
+}
+
+void dataHandler::setmorningWeather(int i, QString value)
+{
+    morningWeather[i] = value;
+}
+
+void dataHandler::setdayWeather(int i, QString value)
+{
+    dayWeather[i] = value;
+}
+
+void dataHandler::seteveningWeather(int i, QString value)
+{
+    eveningWeather[i] = value;
+}
+
+int dataHandler::getnight(int i)
+{
+    return night[i];
+}
+
+int dataHandler::getmorning(int i)
+{
+    return morning[i];
+}
+
+int dataHandler::getday(int i)
+{
+    return day[i];
+}
+
+int dataHandler::getevening(int i)
+{
+    return evening[i];
+}
+
+void dataHandler::setnight(int i, int value)
+{
+    night[i] = value;
+}
+
+void dataHandler::setmorning(int i, int value)
+{
+    night[i] = value;
+}
+
+void dataHandler::setevening(int i, int value)
+{
+    night[i] = value;
+}
+
+void dataHandler::setday(int i, int value)
+{
+    night[i] = value;
+}
+
+void dataHandler::setDateMass(QDate date, int i)
+{
+    Date[i] = date;
+}
+
+QDate dataHandler::getDateMass(int i)
+{
+    return Date[i];
+}
+
+
 void dataHandler::setData(int i,QDate dbDate,int dbDay,QString dbDayWeather)
 {
     Date[i] = dbDate;
@@ -107,11 +208,6 @@ QString dataHandler::choosePic(QString picName)
     return chooser.GetRightName(picName);
 }
 
-QString dataHandler::chooseSmallPic(QString picName)
-{
-    pictureChooser chooser;
-    return chooser.GetRightSmallName(picName);
-}
 
 void dataHandler::setLimit(int lim){
     this->limit = lim;

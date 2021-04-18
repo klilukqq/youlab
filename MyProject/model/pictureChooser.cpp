@@ -8,15 +8,13 @@ pictureChooser::pictureChooser()
 QString pictureChooser::GetRightName(QString prevName)
 {
     QString nextName;
-    //Добавть вариации имен и приведение к названию файла
+    if(prevName == "Солнечно")
+        nextName = ":/image/image/Weather_Sun.png";
+    if(prevName == "Облачно")
+        nextName = ":/image/image/Weather_Cloud.png";
+    if(prevName == "Переменно")
+        nextName = ":/image/image/Weather_CloudAndSun.png";
 
     return nextName;
 }
 
-QString pictureChooser::GetRightSmallName(QString prevName)
-{
-    QString nextName;
-    //Добавть вариации имен и приведение к названию файла
-
-    return nextName;
-}

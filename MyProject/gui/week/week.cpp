@@ -23,64 +23,74 @@ week::week(dataHandler* data, QWidget *parent) :
     int i = 0;
     for (;i < 45 ;i++ ) {
         //возможно изменить формат
-        if(data->Date[i].toString() == date.toString())
+        if(data->getDateMass(i).toString() == date.toString())
             break;
     }
 
+    QPixmap* frame;
+
     ui->date_1->setText(date.toString(Qt::ISODate));
-    ui->frame_1->setPixmap(data->choosePic(data->dayWeather[i]));
-    ui->day_deg_1->setText(QString::number(data->day[i]));
-    ui->night_deg_1->setText(QString::number(data->night[i]));
-    ui->weather_1->setText(data->dayWeather[i]);
+    frame = new QPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->frame_1->setPixmap(frame->scaled(61,51));
+    ui->day_deg_1->setText(QString::number(data->getday(i)));
+    ui->night_deg_1->setText(QString::number(data->getnight(i)));
+    ui->weather_1->setText(data->getdayWeather(i));
     i++;
 
     date = date.addDays(1);
     ui->date_2->setText(date.toString(Qt::ISODate));
-    ui->frame_2->setPixmap(data->choosePic(data->dayWeather[i]));
-    ui->day_deg_2->setText(QString::number(data->day[i]));
-    ui->night_deg_2->setText(QString::number(data->night[i]));
-    ui->weather_2->setText(data->dayWeather[i]);
+    frame = new QPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->frame_2->setPixmap(frame->scaled(61,51));
+    ui->day_deg_2->setText(QString::number(data->getday(i)));
+    ui->night_deg_2->setText(QString::number(data->getnight(i)));
+    ui->weather_2->setText(data->getdayWeather(i));
     i++;
 
     date = date.addDays(1);
     ui->date_3->setText(date.toString(Qt::ISODate));
-    ui->frame_3->setPixmap(data->choosePic(data->dayWeather[i]));
-    ui->day_deg_3->setText(QString::number(data->day[i]));
-    ui->night_deg_3->setText(QString::number(data->night[i]));
-    ui->weather_3->setText(data->dayWeather[i]);
+    frame = new QPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->frame_3->setPixmap(frame->scaled(61,51));
+    ui->day_deg_3->setText(QString::number(data->getday(i)));
+    ui->night_deg_3->setText(QString::number(data->getnight(i)));
+    ui->weather_3->setText(data->getdayWeather(i));
     i++;
 
     date = date.addDays(1);
     ui->date_4->setText(date.toString(Qt::ISODate));
-    ui->frame_4->setPixmap(data->choosePic(data->dayWeather[i]));
-    ui->day_deg_4->setText(QString::number(data->day[i]));
-    ui->night_deg_4->setText(QString::number(data->night[i]));
-    ui->weather_4->setText(data->dayWeather[i]);
+    frame = new QPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->frame_4->setPixmap(frame->scaled(61,51));
+    ui->day_deg_4->setText(QString::number(data->getday(i)));
+    ui->night_deg_4->setText(QString::number(data->getnight(i)));
+    ui->weather_4->setText(data->getdayWeather(i));
     i++;
 
     date = date.addDays(1);
     ui->date_5->setText(date.toString(Qt::ISODate));
-    ui->frame_5->setPixmap(data->choosePic(data->dayWeather[i]));
-    ui->day_deg_5->setText(QString::number(data->day[i]));
-    ui->night_deg_5->setText(QString::number(data->night[i]));
-    ui->weather_5->setText(data->dayWeather[i]);
+    frame = new QPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->frame_5->setPixmap(frame->scaled(61,51));
+    ui->day_deg_5->setText(QString::number(data->getday(i)));
+    ui->night_deg_5->setText(QString::number(data->getnight(i)));
+    ui->weather_5->setText(data->getdayWeather(i));
     i++;
 
     date = date.addDays(1);
     ui->date_6->setText(date.toString(Qt::ISODate));
-    ui->frame_6->setPixmap(data->choosePic(data->dayWeather[i]));
-    ui->day_deg_6->setText(QString::number(data->day[i]));
-    ui->night_deg_6->setText(QString::number(data->night[i]));
-    ui->weather_6->setText(data->dayWeather[i]);
+    frame = new QPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->frame_6->setPixmap(frame->scaled(61,51));
+    ui->day_deg_6->setText(QString::number(data->getday(i)));
+    ui->night_deg_6->setText(QString::number(data->getnight(i)));
+    ui->weather_6->setText(data->getdayWeather(i));
     i++;
 
     date = date.addDays(1);
     ui->date_7->setText(date.toString(Qt::ISODate));
-    ui->frame_7->setPixmap(data->choosePic(data->dayWeather[i]));
-    ui->day_deg_7->setText(QString::number(data->day[i]));
-    ui->night_deg_7->setText(QString::number(data->night[i]));
-    ui->weather_7->setText(data->dayWeather[i]);
+    frame = new QPixmap(data->choosePic(data->getdayWeather(i)));
+    ui->frame_7->setPixmap(frame->scaled(61,51));
+    ui->day_deg_7->setText(QString::number(data->getday(i)));
+    ui->night_deg_7->setText(QString::number(data->getnight(i)));
+    ui->weather_7->setText(data->getdayWeather(i));
 
+    delete frame;
 }
 
 week::~week()

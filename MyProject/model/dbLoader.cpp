@@ -45,7 +45,7 @@ void dbLoader::loader()
         data->setData(i,query->value(0).toDate(),query->value(1).toInt(),query->value(2).toString());
         i++;
     }
-    data->sumDate = i;
+    data->setSumDate(i);
     i = 0;
     query->exec("SELECT Date, morningTemp, eveningTemp, nightTemp, morningString, eveningString, nightString FROM WeatherDay;");
     while(query->next()){

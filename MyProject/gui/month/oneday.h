@@ -12,14 +12,14 @@ class oneDay;
 class oneDay : public QWidget
 {
     Q_OBJECT
+    Ui::oneDay *ui;
 
 public:
     explicit oneDay(QWidget *parent = nullptr);
     ~oneDay();
     void setDate(QString date);
     void setTemp(int temp1, int temp2);
-    Ui::oneDay *ui;
-    void setPic(QString namePic);
+    void setPic(QPixmap namePic);
 };
 
 #endif // ONEDAY_H
